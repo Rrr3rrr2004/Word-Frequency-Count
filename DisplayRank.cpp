@@ -6,6 +6,8 @@ DisplayRank::DisplayRank(QWidget *parent)
 {
 	ui->setupUi(this);
 	//connect(ui->back, SIGNAL(triggered()), this, SLOT(moveToOperations()));
+	//connect(ui->back, SIGNAL(triggered()), this, SLOT(moveToOperations()));
+
 }
 
 DisplayRank::~DisplayRank()

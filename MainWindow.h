@@ -15,6 +15,8 @@
 #include "DisplayFrequency.h"
 #include "DisplayRank.h"
 #include "SearchPage.h"
+#include "FinalPage.h"
+
 
 
 class HomePage;

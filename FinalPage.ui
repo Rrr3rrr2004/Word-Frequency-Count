@@ -1,43 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindowClass</class>
- <widget class="QMainWindow" name="MainWindowClass">
+ <class>FinalPageClass</class>
+ <widget class="QMainWindow" name="FinalPageClass">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>569</width>
+    <width>600</width>
     <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>FinalPage</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="logo">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>30</y>
-      <width>111</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>40</y>
-      <width>368</width>
-      <height>63</height>
+      <x>110</x>
+      <y>30</y>
+      <width>411</width>
+      <height>131</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="2">
       <widget class="QLabel" name="title">
        <property name="styleSheet">
         <string notr="true">color: rgb(99, 122, 159);
@@ -45,29 +32,26 @@ font: 20pt &quot;Stencil&quot;;
 </string>
        </property>
        <property name="text">
-        <string>Welcome to our Program!</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
+        <string>Word Frequancy Count</string>
        </property>
       </widget>
      </item>
-     <item>
+     <item row="1" column="1" colspan="2">
       <widget class="QLabel" name="label">
-       <property name="font">
-        <font>
-         <family>Traditional Arabic</family>
-         <pointsize>11</pointsize>
-         <italic>false</italic>
-         <bold>true</bold>
-        </font>
-       </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(232, 200, 114);
-font: 700 11pt &quot;Traditional Arabic&quot;;</string>
+        <string notr="true">font: 15pt &quot;Stencil&quot;;
+color: rgb(232, 200, 114)
+</string>
        </property>
        <property name="text">
-        <string>Word Frequency Count</string>
+        <string>Thank you for using our program!</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="2">
+      <widget class="QLabel" name="logo">
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </item>
@@ -76,15 +60,26 @@ font: 700 11pt &quot;Traditional Arabic&quot;;</string>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>170</y>
-      <width>401</width>
-      <height>91</height>
+      <x>40</x>
+      <y>200</y>
+      <width>511</width>
+      <height>101</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
+    <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QPushButton" name="start">
+      <widget class="QLabel" name="ques">
+       <property name="styleSheet">
+        <string notr="true">font: 700 15pt &quot;Traditional Arabic&quot;;
+color: rgb(99, 122, 159);</string>
+       </property>
+       <property name="text">
+        <string>Do you want to run another operation?</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="next">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
          <horstretch>0</horstretch>
@@ -92,12 +87,11 @@ font: 700 11pt &quot;Traditional Arabic&quot;;</string>
         </sizepolicy>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(99, 122, 159);
-background-color: rgb(201, 215, 221);
-font: 700 10pt &quot;Traditional Arabic&quot;;</string>
+        <string notr="true">background-color: rgb(255, 243, 207);
+font: 700 10pt &quot;Times New Roman&quot;;</string>
        </property>
        <property name="text">
-        <string>Click here to start!</string>
+        <string>Yes</string>
        </property>
       </widget>
      </item>
@@ -110,12 +104,11 @@ font: 700 10pt &quot;Traditional Arabic&quot;;</string>
         </sizepolicy>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(201, 215, 221);
-color: rgb(99, 122, 159);
-font: 700 9pt &quot;Traditional Arabic&quot;;</string>
+        <string notr="true">background-color: rgb(255, 243, 207);
+font: 700 10pt &quot;Times New Roman&quot;;</string>
        </property>
        <property name="text">
-        <string>Quit the program</string>
+        <string>Close the program</string>
        </property>
       </widget>
      </item>
@@ -127,17 +120,17 @@ font: 700 9pt &quot;Traditional Arabic&quot;;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>569</width>
+     <width>600</width>
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menufile">
+   <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>file</string>
+     <string>File</string>
     </property>
     <addaction name="close"/>
    </widget>
-   <addaction name="menufile"/>
+   <addaction name="menuFile"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -152,7 +145,7 @@ font: 700 9pt &quot;Traditional Arabic&quot;;</string>
   <action name="close">
    <property name="icon">
     <iconset>
-     <normaloff>../../../../Design/atock/icons/close.png</normaloff>../../../../Design/atock/icons/close.png</iconset>
+     <normaloff>icons/close.png</normaloff>icons/close.png</iconset>
    </property>
    <property name="text">
     <string>close</string>
@@ -160,8 +153,6 @@ font: 700 9pt &quot;Traditional Arabic&quot;;</string>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="MainWindow.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

@@ -10,6 +10,7 @@ DeletePage::DeletePage(QWidget *parent)
 	QPixmap deleteLogo("./icons/delete.png");
 	ui->deleteLogo->setPixmap(deleteLogo.scaled(50, 50, Qt::KeepAspectRatio));
 	//connect(ui->back, SIGNAL(triggered()), this, SLOT(moveToOperations()));
+	//connect(ui->next, SIGNAL(triggered()), this, SLOT(moveToFinal()));
 
 }
 

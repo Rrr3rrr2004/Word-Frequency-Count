@@ -11,6 +11,7 @@ namespace Ui { class UpdatePageClass; };
 QT_END_NAMESPACE
 
 class OperationsPage;
+class FinalPage;
 
 class UpdatePage : public QMainWindow
 {
@@ -22,8 +23,10 @@ public:
 
 private slots:
 	void moveToOperations();
+	void moveToFinal();
 
 private:
 	OperationsPage* operationsPage;
+	FinalPage* finalPage;
 	Ui::UpdatePageClass *ui;
 };

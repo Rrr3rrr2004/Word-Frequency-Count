@@ -7,7 +7,7 @@ DisplayTextPage::DisplayTextPage(QWidget *parent)
 {
 	ui->setupUi(this);
 	displayPara();
-	//connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToOperations()));
+	//connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToFinal()));
 	connect(ui->back, SIGNAL(triggered()), this, SLOT(moveToOperations1()));
 }
 

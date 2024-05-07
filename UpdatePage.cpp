@@ -1,6 +1,7 @@
 #include "UpdatePage.h"
 #include "MainWindow.h"
 
+
 UpdatePage::UpdatePage(QWidget *parent)
 	: QMainWindow(parent)
 	, ui(new Ui::UpdatePageClass())
@@ -8,7 +9,7 @@ UpdatePage::UpdatePage(QWidget *parent)
 	ui->setupUi(this);
 	QPixmap update("./icons/update.png");
 	ui->update->setPixmap(update.scaled(50, 50, Qt::KeepAspectRatio));
-	//connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToOperations()));
+	connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToFinal()));
 	connect(ui->back, SIGNAL(triggered()), this, SLOT(moveToOperations()));
 
 }
@@ -24,6 +25,13 @@ void UpdatePage::moveToOperations()
 		operationsPage = new OperationsPage();
 		operationsPage->show();
 	}
+}
+
+void UpdatePage::moveToFinal()
+{
+	hide();
+	finalPage = new FinalPage();
+	finalPage->show();
 }
 
 UpdatePage::~UpdatePage()

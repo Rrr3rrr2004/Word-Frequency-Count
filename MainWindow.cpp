@@ -25,6 +25,7 @@ void MainWindow::moveToHome()
     homePage->show();
 }
 
+//code of quit
 void MainWindow::quitProgram()
 {
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmtion",
