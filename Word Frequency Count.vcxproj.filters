@@ -49,6 +49,12 @@
     <ClCompile Include="WritePage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UploadFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalFunctions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="OperationsPage.h">
@@ -58,6 +64,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="WritePage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="UploadFile.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -71,5 +80,13 @@
     <QtUic Include="WritePage.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="UploadFile.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GlobalFunctions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

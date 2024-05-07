@@ -13,7 +13,7 @@ HomePage::HomePage(QWidget *parent)
 	, ui(new Ui::HomePageClass())
 {
 	ui->setupUi(this);
-	QPixmap logo("D:/Design/atock/icons/search");
+	QPixmap logo("./icons/search.png");
 	ui->logo->setPixmap(logo.scaled(50, 50, Qt::KeepAspectRatio));
 	connect(ui->write, SIGNAL(clicked()), this, SLOT(moveToWrite()));
 	connect(ui->upload, SIGNAL(clicked()), this, SLOT(moveToUpload()));

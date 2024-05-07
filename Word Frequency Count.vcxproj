@@ -92,8 +92,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GlobalFunctions.cpp" />
     <ClCompile Include="HomePage.cpp" />
     <ClCompile Include="OperationsPage.cpp" />
+    <ClCompile Include="UploadFile.cpp" />
     <ClCompile Include="WritePage.cpp" />
     <QtRcc Include="MainWindow.qrc" />
     <QtUic Include="HomePage.ui" />
@@ -102,6 +104,7 @@
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="main.cpp" />
     <QtUic Include="OperationsPage.ui" />
+    <QtUic Include="UploadFile.ui" />
     <QtUic Include="WritePage.ui" />
   </ItemGroup>
   <ItemGroup>
@@ -112,6 +115,12 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="WritePage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="UploadFile.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GlobalFunctions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

@@ -2,6 +2,8 @@
 
 #include <QMainWindow>
 #include "ui_WritePage.h"
+#include <QFileDialog>
+#include <QFile>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class WritePageClass; };
@@ -14,6 +16,10 @@ class WritePage : public QMainWindow
 public:
 	WritePage(QWidget *parent = nullptr);
 	~WritePage();
+
+private slots:
+	void writeToFile(QString filePath);
+	void saveTextToFile();
 
 private:
 	Ui::WritePageClass *ui;
