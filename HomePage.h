@@ -9,6 +9,7 @@ QT_END_NAMESPACE
 
 class MainWindow;
 class WritePage;
+class UploadFile;
 //class OperationsPage;
 
 class HomePage : public QMainWindow
@@ -21,7 +22,7 @@ public:
 
 private slots:
 	void moveToWrite();
-	//void moveToUpload();
+	void moveToUpload();
 	//void moveToOperations();
 	void quitProgram();
 	void back();
@@ -29,6 +30,7 @@ private slots:
 private:
 	MainWindow* mainWindow;
 	WritePage* writePage;
+	UploadFile* uploadFile;
 	//OperationsPage* operationsPage;
 	Ui::HomePageClass *ui;
 };

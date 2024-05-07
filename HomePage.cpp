@@ -1,6 +1,7 @@
 #include "HomePage.h"
 #include "MainWindow.h"
 #include "WritePage.h"
+#include "UploadFile.h"
 
 #include <QPixmap> 
 #include <QMessageBox>
@@ -28,10 +29,12 @@ void HomePage::moveToWrite()
 	writePage->show();
 }
 
-//void HomePage::moveToUpload()
-//{
-//
-//}
+void HomePage::moveToUpload()
+{
+	hide();
+	uploadFile = new UploadFile();
+	uploadFile->show();
+}
 
 //void HomePage::moveToOperations()
 //{

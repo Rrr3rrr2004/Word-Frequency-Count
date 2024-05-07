@@ -1,4 +1,6 @@
 #include "UploadFile.h"
+//#include "GlobalFunctions.h"
+
 using namespace std;
 
 UploadFile::UploadFile(QWidget *parent)
@@ -6,6 +8,7 @@ UploadFile::UploadFile(QWidget *parent)
 	, ui(new Ui::UploadFileClass())
 {
 	ui->setupUi(this);
+	connect(ui->uploadButton, SIGNAL(clicked()), this, SLOT(upload()));
 }
 
 void UploadFile::upload()
