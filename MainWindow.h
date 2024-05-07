@@ -17,9 +17,13 @@
 #include "SearchPage.h"
 #include "FinalPage.h"
 
-
-
-class HomePage;
+#include <QPixmap> 
+#include <QMessageBox>
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+//class HomePage;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindowClass; };
@@ -31,6 +35,13 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+    //static variables
+    static QString QParagraph;
+    static string paragraph;
+    static QString filePath;
+   
+    //static functions
+
     ~MainWindow();
 
 private slots:
@@ -39,5 +50,7 @@ private slots:
 
 private:
     HomePage* homePage;
+
+
     Ui::MainWindowClass *ui;
 };

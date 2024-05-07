@@ -1,9 +1,11 @@
 #include "MainWindow.h"
-#include "HomePage.h"
 
-#include <QPixmap> 
-#include <QMessageBox>
+//#include <QPixmap> 
+//#include <QMessageBox>
 
+QString MainWindow::QParagraph = "";
+string MainWindow::paragraph = "";
+QString MainWindow::filePath = "";
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -39,10 +41,4 @@ void MainWindow::quitProgram()
 MainWindow::~MainWindow()
 {
     delete ui;
-    //
 }
-
-/* critical
-    information
-    question
-    warning*/

@@ -1,16 +1,14 @@
 #pragma once
-
 #include <QMainWindow>
 #include "ui_WritePage.h"
 #include <QFileDialog>
 #include <QFile>
 
+#include "MainWindow.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class WritePageClass; };
 QT_END_NAMESPACE
-
-class OperationsPage;
-class HomePage;
 
 class WritePage : public QMainWindow
 {
@@ -21,7 +19,7 @@ public:
 	~WritePage();
 
 private slots:
-	void writeToFile(QString filePath);
+	void writeToFile();
 	void saveTextToFile();
 	void moveToOperations();
 	void back();
@@ -29,5 +27,6 @@ private slots:
 private:
 	OperationsPage *operationsPage;
 	HomePage* homePage;
+
 	Ui::WritePageClass *ui;
 };

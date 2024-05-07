@@ -1,4 +1,4 @@
-#include "DisplayTextPage.h"
+//#include "DisplayTextPage.h"
 #include "MainWindow.h"
 
 DisplayTextPage::DisplayTextPage(QWidget *parent)
