@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::moveToHome()
 {
+    //try 
     hide();
     homePage = new HomePage();
     homePage->show();
@@ -37,6 +38,7 @@ void MainWindow::quitProgram()
 MainWindow::~MainWindow()
 {
     delete ui;
+    //
 }
 
 /* critical
