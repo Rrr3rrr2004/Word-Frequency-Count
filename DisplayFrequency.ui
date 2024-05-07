@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DisplayFrequencyClass</class>
+ <widget class="QMainWindow" name="DisplayFrequencyClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>601</width>
+    <height>417</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>DisplayFrequency</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>271</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(232, 200, 114);
+font: 700 12pt &quot;Times New Roman&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Word Frequencies:</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>501</width>
+      <height>261</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QTableWidget" name="tableFreq">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(99, 122, 159);
+font: 700 10pt &quot;Traditional Arabic&quot;;
+alternate-background-color: rgb(201, 215, 221);</string>
+       </property>
+       <column>
+        <property name="text">
+         <string>Word</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Frequency</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="next">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 243, 207);
+font: 700 10pt &quot;Times New Roman&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Next</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>601</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="back"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="back"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="back">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/back.png</normaloff>icons/back.png</iconset>
+   </property>
+   <property name="text">
+    <string>back</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

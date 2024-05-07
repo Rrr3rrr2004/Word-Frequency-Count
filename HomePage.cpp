@@ -1,12 +1,9 @@
 #include "HomePage.h"
 #include "MainWindow.h"
-#include "WritePage.h"
-#include "UploadFile.h"
+
 
 #include <QPixmap> 
 #include <QMessageBox>
-
-
 
 
 HomePage::HomePage(QWidget *parent)

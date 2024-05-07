@@ -1,22 +1,219 @@
-<UI version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>OperationsPageClass</class>
- <widget class="QMainWindow" name="OperationsPageClass" >
-  <property name="objectName" >
-   <string notr="true">OperationsPageClass</string>
-  </property>
-  <property name="geometry" >
+ <widget class="QMainWindow" name="OperationsPageClass">
+  <property name="geometry">
    <rect>
-	<x>0</x>
-	<y>0</y>
-	<width>600</width>
-	<height>400</height>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>OperationsPage</string>
-  </property>  <widget class="QMenuBar" name="menuBar" />  <widget class="QToolBar" name="mainToolBar" />  <widget class="QWidget" name="centralWidget" />  <widget class="QStatusBar" name="statusBar" />
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>90</y>
+      <width>541</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="displayPara">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 243, 207);
+font: 700 10pt &quot;Times New Roman&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Display the paragraph</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="displayFreq">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 243, 207);
+font: 700 10pt &quot;Times New Roman&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Display Frequency of each word</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="update">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 243, 207);
+font: 700 10pt &quot;Times New Roman&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Update the paragraph</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="delete_2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 243, 207);
+font: 700 10pt &quot;Times New Roman&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Delete from the paragraph</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="sortAsc">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 243, 207);
+font: 700 10pt &quot;Times New Roman&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Sort words ascendingly according to their frequencies </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="sortDesc">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 243, 207);
+font: 700 10pt &quot;Times New Roman&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Sort words descendingly according to their frequencies </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="search">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 243, 207);
+font: 700 10pt &quot;Times New Roman&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Search for a word to display its frequency</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="diplayRank">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 243, 207);
+font: 700 10pt &quot;Times New Roman&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Display the rank</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="title">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>20</y>
+      <width>321</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(99, 122, 159);
+font: 20pt &quot;Stencil&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Operations on text</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="operation">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>10</y>
+      <width>81</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
  <connections/>
-</UI>
+</ui>

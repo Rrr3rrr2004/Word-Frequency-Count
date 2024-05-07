@@ -92,18 +92,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DeletePage.cpp" />
+    <ClCompile Include="DisplayFrequency.cpp" />
+    <ClCompile Include="DisplayRank.cpp" />
+    <ClCompile Include="DisplayTextPage.cpp" />
     <ClCompile Include="GlobalFunctions.cpp" />
     <ClCompile Include="HomePage.cpp" />
     <ClCompile Include="OperationsPage.cpp" />
+    <ClCompile Include="SearchPage.cpp" />
+    <ClCompile Include="SortAsc.cpp" />
+    <ClCompile Include="SortDesc.cpp" />
+    <ClCompile Include="UpdatePage.cpp" />
     <ClCompile Include="UploadFile.cpp" />
     <ClCompile Include="WritePage.cpp" />
     <QtRcc Include="MainWindow.qrc" />
+    <QtUic Include="DeletePage.ui" />
+    <QtUic Include="DisplayFrequency.ui" />
+    <QtUic Include="DisplayRank.ui" />
+    <QtUic Include="DisplayTextPage.ui" />
     <QtUic Include="HomePage.ui" />
     <QtUic Include="MainWindow.ui" />
     <QtMoc Include="MainWindow.h" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="main.cpp" />
     <QtUic Include="OperationsPage.ui" />
+    <QtUic Include="SearchPage.ui" />
+    <QtUic Include="SortAsc.ui" />
+    <QtUic Include="SortDesc.ui" />
+    <QtUic Include="UpdatePage.ui" />
     <QtUic Include="UploadFile.ui" />
     <QtUic Include="WritePage.ui" />
   </ItemGroup>
@@ -120,6 +136,14 @@
     <QtMoc Include="UploadFile.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="SearchPage.h" />
+    <QtMoc Include="DisplayRank.h" />
+    <QtMoc Include="DisplayFrequency.h" />
+    <QtMoc Include="SortDesc.h" />
+    <QtMoc Include="SortAsc.h" />
+    <QtMoc Include="DeletePage.h" />
+    <QtMoc Include="UpdatePage.h" />
+    <QtMoc Include="DisplayTextPage.h" />
     <ClInclude Include="GlobalFunctions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

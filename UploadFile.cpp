@@ -1,4 +1,10 @@
 #include "UploadFile.h"
+#include "MainWindow.h"
+
+
+#include <QPixmap> 
+#include <QMessageBox>
+
 //#include "GlobalFunctions.h"
 
 using namespace std;
@@ -8,7 +14,11 @@ UploadFile::UploadFile(QWidget *parent)
 	, ui(new Ui::UploadFileClass())
 {
 	ui->setupUi(this);
+	QPixmap logo("./icons/upload.png");
+	ui->logo->setPixmap(logo.scaled(50, 50, Qt::KeepAspectRatio));
 	connect(ui->uploadButton, SIGNAL(clicked()), this, SLOT(upload()));
+	connect(ui->nextToOp, SIGNAL(clicked()), this, SLOT(moveToOperations()));
+	connect(ui->backToHome, SIGNAL(clicked()), this, SLOT(back()));
 }
 
 void UploadFile::upload()
@@ -42,6 +52,21 @@ void UploadFile::readFile(QString filePath)
 	}
 
 }
+
+void UploadFile::moveToOperations()
+{
+	hide();
+	operationsPage = new OperationsPage();
+	operationsPage->show();
+}
+
+void UploadFile::back()
+{
+	hide();
+	homePage = new HomePage();
+	homePage->show();
+}
+
 UploadFile::~UploadFile()
 {
 	delete ui;

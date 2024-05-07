@@ -1,4 +1,5 @@
-#include "WritePage.h"
+#include "MainWindow.h"
+
 using namespace std;
 
 WritePage::WritePage(QWidget *parent)
@@ -7,6 +8,15 @@ WritePage::WritePage(QWidget *parent)
 {
 	ui->setupUi(this);
     connect(ui->saveFile, SIGNAL(clicked()), this, SLOT(saveTextToFile()));
+    connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToOperations()));
+    connect(ui->back, SIGNAL(clicked()), this, SLOT(back()));
+
+}
+void WritePage::moveToOperations()
+{
+    hide();
+    operationsPage = new OperationsPage();
+    operationsPage->show();
 }
 
 void WritePage::saveTextToFile()
@@ -47,6 +57,13 @@ void WritePage :: writeToFile(QString filePath)
         // Close the file
         file.close();
     }
+}
+
+void WritePage::back()
+{
+    hide();
+    homePage = new HomePage();
+    homePage->show();
 }
 
 WritePage::~WritePage()

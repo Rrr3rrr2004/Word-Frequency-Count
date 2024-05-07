@@ -2,6 +2,20 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_MainWindow.h"
+//pages
+#include "OperationsPage.h"
+#include "UploadFile.h"
+#include "DisplayTextPage.h"
+#include "HomePage.h"
+#include "UpdatePage.h"
+#include "WritePage.h"
+#include "DeletePage.h"
+#include "SortAsc.h"
+#include "SortDesc.h"
+#include "DisplayFrequency.h"
+#include "DisplayRank.h"
+#include "SearchPage.h"
+
 
 class HomePage;
 

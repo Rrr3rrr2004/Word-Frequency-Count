@@ -10,7 +10,8 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class UploadFileClass; };
 QT_END_NAMESPACE
 
-
+class OperationsPage;
+class HomePage;
 
 class UploadFile : public QMainWindow
 {
@@ -23,10 +24,12 @@ public:
 private slots:
 	void upload();
 	void readFile(QString filePath);
-	/*void next();
-	void back();*/
+	void moveToOperations();
+	void back();
 
 private:
 	//GlobalFunctions global;
+	OperationsPage* operationsPage;
+	HomePage* homePage;
 	Ui::UploadFileClass *ui;
 };

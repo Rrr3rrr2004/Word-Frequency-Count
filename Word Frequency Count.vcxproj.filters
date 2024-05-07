@@ -55,6 +55,30 @@
     <ClCompile Include="GlobalFunctions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DisplayTextPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdatePage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DeletePage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SortAsc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SortDesc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayFrequency.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayRank.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="OperationsPage.h">
@@ -69,6 +93,30 @@
     <QtMoc Include="UploadFile.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="DisplayTextPage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="UpdatePage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="DeletePage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="SortAsc.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="SortDesc.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="DisplayFrequency.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="DisplayRank.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="SearchPage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="OperationsPage.ui">
@@ -81,6 +129,30 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="UploadFile.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="DisplayTextPage.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="UpdatePage.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="DeletePage.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="SortAsc.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="SortDesc.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="DisplayFrequency.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="DisplayRank.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="SearchPage.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
