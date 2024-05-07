@@ -3,9 +3,7 @@
 //#include <QPixmap> 
 //#include <QMessageBox>
 
-QString MainWindow::QParagraph = "";
-string MainWindow::paragraph = "";
-QString MainWindow::filePath = "";
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)

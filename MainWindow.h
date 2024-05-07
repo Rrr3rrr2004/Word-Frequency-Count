@@ -3,6 +3,7 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_MainWindow.h"
 //pages
+
 #include "OperationsPage.h"
 #include "UploadFile.h"
 #include "DisplayTextPage.h"
@@ -16,6 +17,7 @@
 #include "DisplayRank.h"
 #include "SearchPage.h"
 #include "FinalPage.h"
+#include "GlobalFunctions.h"
 
 #include <QPixmap> 
 #include <QMessageBox>
@@ -36,9 +38,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //static variables
-    static QString QParagraph;
+    /*static QString QParagraph;
     static string paragraph;
-    static QString filePath;
+    static QString filePath;*/
    
     //static functions
 

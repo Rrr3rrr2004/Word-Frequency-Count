@@ -19,8 +19,11 @@ using namespace std;
 class GlobalFunctions
 {
 public:
-    QString QParagraph;
-    QString filePath;
-    string paragraph;
+    static QString QParagraph;
+    static QString filePath;
+    static string paragraph;
+
+    static vector<string> stringToVector(const string& text);
+    static void countWordFrequency();
 };
 

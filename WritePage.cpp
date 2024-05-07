@@ -23,7 +23,7 @@ void WritePage::saveTextToFile()
 {
     //store the writtenParagraph in string after convert it
     //The text without editing
-    MainWindow::QParagraph = ui->writeText->toPlainText();
+    GlobalFunctions::QParagraph = ui->writeText->toPlainText();
 
     //editing the text
     QString QParagraphEdited = ui->writeText->toPlainText();
@@ -31,13 +31,13 @@ void WritePage::saveTextToFile()
     QParagraphEdited = QParagraphEdited.toLower();
 
     //string text after editing
-    MainWindow::paragraph = QParagraphEdited.toStdString();
+    GlobalFunctions::paragraph = QParagraphEdited.toStdString();
 
     //Open a file dialog to specify the file path
-    MainWindow::filePath = QFileDialog::getSaveFileName(this, tr("Save File"), "",
+    GlobalFunctions::filePath = QFileDialog::getSaveFileName(this, tr("Save File"), "",
         tr("Text Files (*.txt)"));
 
-    if (!MainWindow::filePath.isEmpty())
+    if (!GlobalFunctions::filePath.isEmpty())
     {
         writeToFile();
     }
@@ -45,14 +45,14 @@ void WritePage::saveTextToFile()
 
 void WritePage :: writeToFile()
 {
-    QFile file(MainWindow::filePath);
+    QFile file(GlobalFunctions::filePath);
     // Open the file in write mode
     if (file.open(QIODevice::WriteOnly | QIODevice::Text))
     {
         // Create a QTextStream to write to the file
         QTextStream out(&file);
         // Write the data to the file
-        out << MainWindow::QParagraph;
+        out << GlobalFunctions::QParagraph;
         // Close the file
         file.close();
     }

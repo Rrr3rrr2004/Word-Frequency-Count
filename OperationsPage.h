@@ -24,9 +24,9 @@ public:
 	OperationsPage(QWidget* parent = nullptr);
 
 
-	vector<string> stringToVector(const string& text) const;
+	//vector<string> stringToVector(const string& text) const;
 
-	unordered_map<string, int> countWordFrequency();
+	//unordered_map<string, int> countWordFrequency();
 
 	~OperationsPage();
 private slots:
