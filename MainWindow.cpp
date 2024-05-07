@@ -38,6 +38,7 @@ void MainWindow::quitProgram()
 MainWindow::~MainWindow()
 {
     delete ui;
+    //
 }
 
 /* critical
