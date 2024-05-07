@@ -94,6 +94,7 @@
   <ItemGroup>
     <ClCompile Include="HomePage.cpp" />
     <ClCompile Include="OperationsPage.cpp" />
+    <ClCompile Include="WritePage.cpp" />
     <QtRcc Include="MainWindow.qrc" />
     <QtUic Include="HomePage.ui" />
     <QtUic Include="MainWindow.ui" />
@@ -101,12 +102,16 @@
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="main.cpp" />
     <QtUic Include="OperationsPage.ui" />
+    <QtUic Include="WritePage.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="OperationsPage.h" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="HomePage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="WritePage.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

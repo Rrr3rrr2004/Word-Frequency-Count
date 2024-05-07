@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindowClass())
 {
     ui->setupUi(this);
-    QPixmap logo("D:/Design/atock/icons/search");
+    QPixmap logo("./icons/search.png");
     ui->logo->setPixmap(logo.scaled(75, 75, Qt::KeepAspectRatio));
     connect(ui->quit, SIGNAL(clicked()), this, SLOT(quitProgram()));
     connect(ui->start, SIGNAL(clicked()), this, SLOT(moveToHome()));

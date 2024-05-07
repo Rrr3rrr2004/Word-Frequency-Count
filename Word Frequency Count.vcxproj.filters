@@ -46,6 +46,9 @@
     <ClCompile Include="HomePage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WritePage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="OperationsPage.h">
@@ -54,12 +57,18 @@
     <QtMoc Include="HomePage.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="WritePage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="OperationsPage.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="HomePage.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="WritePage.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
