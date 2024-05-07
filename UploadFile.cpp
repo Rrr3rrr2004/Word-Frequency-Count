@@ -1,7 +1,6 @@
 #include "UploadFile.h"
 #include "MainWindow.h"
 
-
 #include <QPixmap> 
 #include <QMessageBox>
 

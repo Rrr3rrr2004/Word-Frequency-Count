@@ -115,7 +115,7 @@ font: 700 10pt &quot;Times New Roman&quot;;</string>
 font: 700 10pt &quot;Times New Roman&quot;;</string>
        </property>
        <property name="text">
-        <string>Back to operations</string>
+        <string>Next</string>
        </property>
       </widget>
      </item>
