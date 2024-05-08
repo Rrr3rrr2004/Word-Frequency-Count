@@ -1,6 +1,4 @@
 #pragma once
-
-using namespace std;
 #include <iostream>
 #include <QVBoxLayout>
 #include <QPushButton>
@@ -15,6 +13,10 @@ using namespace std;
 #include <QCoreApplication>
 #include <QFileDialog>
 #include <QFile>
+#include <QPixmap> 
+#include <QMessageBox>
+
+using namespace std;
 
 class GlobalFunctions
 {
@@ -22,8 +24,15 @@ public:
     static QString QParagraph;
     static QString filePath;
     static string paragraph;
+    static string allTexts;
+
+    static unordered_map<string, int> localFrequencies;
+    static unordered_map<string, int> globalFrequencies;
+     
+    //Files functions
+    static void writeToFile(const QString& filePath);
 
     static vector<string> stringToVector(const string& text);
-    static void countWordFrequency();
+    static  unordered_map<string, int> countWordFrequency(const string& paragraph);
 };
 

@@ -1,9 +1,6 @@
 #pragma once
 #include <QMainWindow>
 #include "ui_WritePage.h"
-#include <QFileDialog>
-#include <QFile>
-
 #include "MainWindow.h"
 
 QT_BEGIN_NAMESPACE
@@ -19,7 +16,7 @@ public:
 	~WritePage();
 
 private slots:
-	void writeToFile();
+	//void writeToFile();
 	void saveTextToFile();
 	void moveToOperations();
 	void back();

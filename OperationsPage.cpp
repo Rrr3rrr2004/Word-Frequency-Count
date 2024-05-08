@@ -1,16 +1,12 @@
 #pragma once
 #include "MainWindow.h"
-//#include "OperationsPage.h"
-//#include "MainWindow.h"
-
-//#include <QPixmap> 
-//#include <QMessageBox>
 
 OperationsPage::OperationsPage(QWidget *parent)
 	: QMainWindow(parent)
 	, ui(new Ui::OperationsPageClass())
 {
-	GlobalFunctions::countWordFrequency();
+	GlobalFunctions::localFrequencies = GlobalFunctions::countWordFrequency(GlobalFunctions::paragraph);
+	GlobalFunctions::globalFrequencies = GlobalFunctions::countWordFrequency(GlobalFunctions::allTexts);
 
 	ui->setupUi(this);
 	QPixmap operation("./icons/operation.png");

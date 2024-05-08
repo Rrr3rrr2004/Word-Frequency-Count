@@ -34,29 +34,29 @@ void WritePage::saveTextToFile()
     GlobalFunctions::paragraph = QParagraphEdited.toStdString();
 
     //Open a file dialog to specify the file path
-    GlobalFunctions::filePath = QFileDialog::getSaveFileName(this, tr("Save File"), "",
+    QString filePath = QFileDialog::getSaveFileName(this, tr("Save File"), "",
         tr("Text Files (*.txt)"));
 
-    if (!GlobalFunctions::filePath.isEmpty())
+    if (!filePath.isEmpty())
     {
-        writeToFile();
+        GlobalFunctions::writeToFile(filePath);
     }
 }
 
-void WritePage :: writeToFile()
-{
-    QFile file(GlobalFunctions::filePath);
-    // Open the file in write mode
-    if (file.open(QIODevice::WriteOnly | QIODevice::Text))
-    {
-        // Create a QTextStream to write to the file
-        QTextStream out(&file);
-        // Write the data to the file
-        out << GlobalFunctions::QParagraph;
-        // Close the file
-        file.close();
-    }
-}
+//void WritePage::writeToFile()
+//{
+//    QFile file(GlobalFunctions::filePath);
+//    // Open the file in write mode
+//    if (file.open(QIODevice::WriteOnly | QIODevice::Text))
+//    {
+//        // Create a QTextStream to write to the file
+//        QTextStream out(&file);
+//        // Write the data to the file
+//        out << GlobalFunctions::QParagraph;
+//        // Close the file
+//        file.close();
+//    }
+//}
 
 void WritePage::back()
 {

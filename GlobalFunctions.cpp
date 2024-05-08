@@ -1,9 +1,26 @@
 #include "GlobalFunctions.h"
 
+QString GlobalFunctions::QParagraph;
+string GlobalFunctions::paragraph;
+string GlobalFunctions::allTexts;
+QString GlobalFunctions::filePath;
+unordered_map<string, int> GlobalFunctions::localFrequencies;
+unordered_map<string, int> GlobalFunctions::globalFrequencies;
 
-QString GlobalFunctions::QParagraph = "";
-string GlobalFunctions::paragraph = "";
-QString GlobalFunctions::filePath = "";
+void GlobalFunctions::writeToFile(const QString& filePath)
+{
+	QFile file(filePath);
+	// Open the file in write mode
+	if (file.open(QIODevice::WriteOnly | QIODevice::Text))
+	{
+		// Create a QTextStream to write to the file
+		QTextStream out(&file);
+		// Write the data to the file
+		out << QParagraph;
+		// Close the file
+		file.close();
+	}
+}
 
 vector<string> GlobalFunctions::stringToVector(const string& text)
 {
@@ -40,29 +57,29 @@ vector<string> GlobalFunctions::stringToVector(const string& text)
 	return words;
 }
 
-void GlobalFunctions::countWordFrequency()
+unordered_map<string, int> GlobalFunctions::countWordFrequency(const string& text)
 {
-	unordered_map<string, int> myCounter;
+	unordered_map<string, int> wordFrequency;
 	vector<string> words;
-	string text;
+	string textEdited;
 	bool inWord = false;
-	//string word;
 
-	for (char ch : paragraph)
+	for (char ch : text)
 	{
 		// ignore the punctuation marks from the paragraph
 		if (!ispunct(ch))
 		{
-			text += ch;
+			textEdited += ch;
 		}
 	}
 
 	// convert the text to vector of string
-	words = stringToVector(text);
+	words = stringToVector(textEdited);
 
 	// count the frequency of each word
 	for (int i = 0; i < words.size(); i++)
 	{
-		myCounter[words[i]]++;
+		wordFrequency[words[i]]++;
 	}
+	return wordFrequency;
 }
