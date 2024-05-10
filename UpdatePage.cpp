@@ -21,7 +21,7 @@ UpdatePage::UpdatePage(QWidget *parent)
 	ui->oldLine->setCompleter(completer);
 	ui->newLine->setCompleter(completer);
 
-	connect(ui->oldLine, SIGNAL(returnPressed()), this, SLOT(autoComplete()));
+	connect(ui->oldLine, SIGNAL(textChanged(QString)), this, SLOT(autoComplete()));
 	//connect(ui->newLine, SIGNAL(textChanged(QString)), this, SLOT(autoComplete()));
 
 	connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToFinal()));
@@ -74,7 +74,9 @@ void UpdatePage::autoComplete()
 	//QStringList history = p.split(pattern, Qt::SkipEmptyParts);
 	QStringList words = p.split(" ", Qt::SkipEmptyParts);
 
-	QStringList textLine = ui->oldLine->text().split(" ", Qt::SkipEmptyParts);
+	QStringList textLine= ui->oldLine->text().split(QRegularExpression("\\b|\\W"), Qt::SkipEmptyParts);
+	QString lastWord = textLine.isEmpty() ? "" : textLine.last();
+	//QStringList textLine = ui->oldLine->text().split(" ", Qt::SkipEmptyParts);
  
 	// Split the entered text into individual words
 	//QStringList words = GlobalFunctions::QParagraph.split(QRegularExpression("\\b|\\W"), Qt::SkipEmptyParts);
@@ -99,7 +101,7 @@ void UpdatePage::autoComplete()
 	historyModel->setStringList(filteredList);
 
 	// Set the completion prefix and complete
-	completer->setCompletionPrefix(textLine.last());
+	completer->setCompletionPrefix(lastWord);
 	completer->complete();
 
 	//// Add the entered text to the history
