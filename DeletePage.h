@@ -1,8 +1,6 @@
 #pragma once
-
 #include <QMainWindow>
 #include "ui_DeletePage.h"
-
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class DeletePageClass; };
@@ -19,7 +17,8 @@ public:
 private slots:
 	void moveToOperations();
 	void moveToFinal();
-	void displayPara();
+	void deleteText();
+	void deleteAllText();
 
 private:
 	

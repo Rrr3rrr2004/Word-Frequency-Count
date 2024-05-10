@@ -1,6 +1,5 @@
 #include "MainWindow.h"
 
-
 UpdatePage::UpdatePage(QWidget *parent)
 	: QMainWindow(parent)
 	, ui(new Ui::UpdatePageClass())
@@ -9,39 +8,23 @@ UpdatePage::UpdatePage(QWidget *parent)
 	QPixmap update("./icons/update.png");
 	ui->update->setPixmap(update.scaled(50, 50, Qt::KeepAspectRatio));
 
-	// Create the QStringListModel
-	historyModel = new QStringListModel(this);
+	ui->textEdit->setPlainText(GlobalFunctions::QParagraph);
 
-	// Create the QCompleter with the QStringListModel
+	historyModel = new QStringListModel(this);
 	completer = new QCompleter(historyModel, this);
 	completer->setCaseSensitivity(Qt::CaseInsensitive);
 	completer->setCompletionMode(QCompleter::PopupCompletion);
 
-	// Set the QCompleter to the QLineEdit widgets
 	ui->oldLine->setCompleter(completer);
 	ui->newLine->setCompleter(completer);
 
 	connect(ui->oldLine, SIGNAL(textChanged(QString)), this, SLOT(autoComplete()));
 	//connect(ui->newLine, SIGNAL(textChanged(QString)), this, SLOT(autoComplete()));
 
-	connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToFinal()));
 	connect(ui->back, SIGNAL(triggered()), this, SLOT(moveToOperations()));
-
-	//// Create a QLineEdit widget
-	//lineEdit = new QLineEdit(searchPage);
-	//historyModel = new QStringListModel(searchPage);
-	//// Create a QCompleter with the QStringListModel
-	//completer = new QCompleter(historyModel, searchPage);
-	//completer->setCaseSensitivity(Qt::CaseInsensitive); // Optional: Case insensitive completion
-	//// Set the completer to provide suggestions as the user types
-	//completer->setCompletionMode(QCompleter::PopupCompletion);
-	//// Set the completer to the line edit widget
-	//// Connect the returnPressed signal of the line edit to a slot to update the history
-	//connect(lineEdit, &QLineEdit::textChanged, this, &MainWindow::autoComplete);
-
+	connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToFinal()));
 }
 
-//code of all move to operations function
 void UpdatePage::moveToOperations()
 {
 	QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmtion",
@@ -56,6 +39,8 @@ void UpdatePage::moveToOperations()
 
 void UpdatePage::moveToFinal()
 {
+	updateText();
+	GlobalFunctions::writeToFile();
 	hide();
 	FinalPage* finalPage = new FinalPage();
 	finalPage->show();
@@ -63,24 +48,14 @@ void UpdatePage::moveToFinal()
 
 void UpdatePage::autoComplete()
 {
-	//QString p = GlobalFunctions::QParagraph.toLower();
+	QString p = GlobalFunctions::QParagraph.toLower();
 
 	// Define a regular expression pattern to match punctuation marks
-	//QRegularExpression pattern("\\b|\\W");
-	//QStringList history = p.split(pattern, Qt::SkipEmptyParts);
-	QStringList words = GlobalFunctions::QParagraph.toLower().split(" ", Qt::SkipEmptyParts);
+	QRegularExpression pattern("\\b|\\W");
+	QStringList history = p.split(pattern, Qt::SkipEmptyParts);
 
-	QStringList textLine= ui->oldLine->text().split(QRegularExpression("\\b|\\W"), Qt::SkipEmptyParts);
-	QString lastWord = textLine.isEmpty() ? "" : textLine.last();
-	//QStringList textLine = ui->oldLine->text().split(" ", Qt::SkipEmptyParts);
- 
-	// Split the entered text into individual words
-	//QStringList words = GlobalFunctions::QParagraph.split(QRegularExpression("\\b|\\W"), Qt::SkipEmptyParts);
-
-	// Use a set to remove duplicates
 	QSet<QString> uniqueWords;
-
-	for (const QString& word : words)
+	for (const QString& word : history)
 	{
 		uniqueWords.insert(word);
 	}
@@ -90,51 +65,43 @@ void UpdatePage::autoComplete()
 	{
 		filteredList << word;
 	}
-
-	// Convert the set back to a QStringList
-
-	// Set the QStringListModel with the filtered list
 	historyModel->setStringList(filteredList);
 
 	// Set the completion prefix and complete
-	completer->setCompletionPrefix(lastWord);
+	completer->setCompletionPrefix(ui->oldLine->text());
+	//completer->setCompletionPrefix(ui->newLine->text());
 	completer->complete();
+}
 
-	//// Add the entered text to the history
-	////QString p = GlobalFunctions::QParagraph.toLower();
+void UpdatePage::updateText()
+{
+	bool flag = 0;
+	int index = GlobalFunctions::deleteFromText(ui->oldLine->text(),flag);
+	if (!flag)
+	{
+		QMessageBox::information(this, "Warning!!", ui->oldLine->text() + "\nIS NOT VALID IN YOUR TEXT!!\nPlease, Enter another Sentance.");
+	}
+	else
+	{
+		string sNewText = ui->newLine->text().toStdString();
+		vector<string> newVector = GlobalFunctions::stringToVector(sNewText);
+	
+		QString paragraph = GlobalFunctions::QParagraph;
+		vector<string> paraVector = GlobalFunctions::stringToVector(paragraph.replace("\n", " ").toLower().toStdString());
 
-	//// Define a regular expression pattern to match punctuation marks
-	//QRegularExpression pattern("\\b|\\W");
-	//QStringList history = GlobalFunctions::QParagraph.split(pattern, Qt::SkipEmptyParts);
+		//if (index != -1)
+		//{
+		//}
+		for (int i = 0; i < newVector.size(); i++)
+		{
+			paraVector.insert(paraVector.begin() + index, newVector[i]);
+			index++;
+		}
 
-	//QSet<QString> uniqueWords;
-	//QStringList filteredList;
-
-	//for (const QString& word : history)
-	//{
-	//	uniqueWords.insert(word);
-	//	filteredList << word;
-	//}
-
-	//for (const QString& word : uniqueWords)
-	//{
-	//	filteredList << word;
-	//}
-	//QStringListModel* historyModel = new QStringListModel(this);
-	//historyModel->setStringList(filteredList);
-	//completer = new QCompleter(historyModel, this);
-	//completer->setCaseSensitivity(Qt::CaseInsensitive);
-	//completer->setCompletionMode(QCompleter::PopupCompletion);
-
-	////QString text = ui->oldLine->text();
-	////Split the entered text into individual words
-	////QStringList words = text.split(" ", Qt::SkipEmptyParts);
-
-	////Take the last word for auto-completion
-	////QString lastWord = words.isEmpty() ? "" : words.last();
-
-	//completer->setCompletionPrefix(ui->oldLine->text());
-	//completer->complete();
+		string finalPara = GlobalFunctions::vectorToString(paraVector);
+		GlobalFunctions::QParagraph = QString::fromStdString(finalPara);
+		QMessageBox::information(this, "Congratulation", "The Sentance Is Updated.");
+	}
 }
 
 UpdatePage::~UpdatePage()

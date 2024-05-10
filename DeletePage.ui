@@ -66,7 +66,11 @@ font: 700 12pt &quot;Times New Roman&quot;;</string>
       </widget>
      </item>
      <item>
-      <widget class="QTextEdit" name="textEdit"/>
+      <widget class="QLineEdit" name="delText">
+       <property name="clearButtonEnabled">
+        <bool>false</bool>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QPushButton" name="deleteButton">

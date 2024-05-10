@@ -1,7 +1,4 @@
-#include "DeletePage.h"
 #include "MainWindow.h"
-#include <QPixmap> 
-#include <QMessageBox>
 
 DeletePage::DeletePage(QWidget *parent)
 	: QMainWindow(parent)
@@ -9,10 +6,12 @@ DeletePage::DeletePage(QWidget *parent)
 {
 	ui->setupUi(this);
 	QPixmap deleteLogo("./icons/delete.png");
-	displayPara();
+	ui->display->setPlainText(GlobalFunctions::QParagraph);
 	ui->deleteLogo->setPixmap(deleteLogo.scaled(50, 50, Qt::KeepAspectRatio));
-	connect(ui->back, SIGNAL(triggered()), this, SLOT(moveToOperations()));
-	connect(ui->next, SIGNAL(triggered()), this, SLOT(moveToFinal()));
+	connect(ui->deleteButton, SIGNAL(clicked()), this, SLOT(deleteText()));
+	connect(ui->delete_allButton, SIGNAL(clicked()), this, SLOT(deleteAllText()));
+	connect(ui->back, SIGNAL(clicked()), this, SLOT(moveToOperations()));
+	connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToFinal()));
 }
 
 void DeletePage::moveToOperations()
@@ -30,18 +29,35 @@ void DeletePage::moveToOperations()
 
 void DeletePage::moveToFinal()
 {
+	GlobalFunctions::writeToFile();
 	hide();
 	FinalPage* finalPage = new FinalPage();
 	finalPage->show();
 }
 
-void DeletePage::displayPara()
+//Delete functions
+void DeletePage::deleteText()
 {
-	ui->display->setPlainText(GlobalFunctions::QParagraph);
+	bool flag = 0;
+	GlobalFunctions::deleteFromText(ui->delText->text(),flag);
+	if (!flag)
+	{
+		QMessageBox::information(this, "Warning!!", ui->delText->text() + "\nIS NOT VALID IN YOUR TEXT!!\nPlease, Enter another Sentance.");
+	}
+	else
+	{
+		QMessageBox::information(this, "Congratulation", "The Sentance Is Deleted.");
+	}
 }
+
+void DeletePage::deleteAllText()
+{
+	GlobalFunctions::QParagraph.clear();
+	QMessageBox::information(this, "Congraturaltion", "Your Text is Deleted Successfully");
+}
+
 
 DeletePage::~DeletePage()
 {
 	delete ui;
 }
-//update

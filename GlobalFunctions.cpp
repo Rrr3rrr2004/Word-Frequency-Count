@@ -140,3 +140,75 @@ unordered_map<string, int> GlobalFunctions::countWordFrequency(QString text)
 	}
 	return wordFrequency;
 }
+
+string GlobalFunctions::vectorToString(vector<string> text)
+{
+	string finalPara;
+	int n = 0;
+	// Iterate over each element of the vector
+	for (string str : text)
+	{
+		// Concatenate the current string to the result
+		finalPara += str;
+		finalPara += " ";
+		if (n == 18)
+		{
+			finalPara += '\n';
+			n = 0;
+		}
+		n++;
+	}
+	return finalPara;
+}
+
+int GlobalFunctions::deleteFromText(const QString& text, bool& flag)
+{
+	string sDelText = text.toLower().toStdString();
+	vector<string> delVector = GlobalFunctions::stringToVector(sDelText);
+	string paragraph = GlobalFunctions::QParagraph.toLower().replace("\n", " ").toStdString();
+	vector<string> paraVector = GlobalFunctions::stringToVector(paragraph);
+
+	int index = -1;
+	for (int i = 0; i < paraVector.size(); i++)
+	{
+		if (paraVector[i] == delVector[0])
+		{
+			index = i;
+			for (int j = 0; j < delVector.size(); j++)
+			{
+				if (paraVector[i] == delVector[j])
+				{
+					flag = true;
+					i++;
+				}
+				else
+				{
+					flag = false;
+					break;
+				}
+			}
+		}
+		if (flag)
+		{
+			break;
+		}
+	}
+
+	//if (!flag)
+	//{
+		//QMessageBox::information(this, "Warning!!", QString::fromStdString(sDelText) + "\nIS NOT VALID IN YOUR TEXT!!\nPlease, Enter another Sentance");
+	//}
+	if (flag)
+	{
+		//QMessageBox::information(this, "Congratulation", "The Sentance Is Updated");
+		for (int i = 0; i < delVector.size(); i++)
+		{
+			paraVector.erase(paraVector.begin() + index);
+		}
+
+		string finalPara = vectorToString(paraVector);
+		QParagraph = QString::fromStdString(finalPara);
+	}
+	return index;
+}
+

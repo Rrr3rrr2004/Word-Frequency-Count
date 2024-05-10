@@ -16,6 +16,8 @@
 #include <QPixmap> 
 #include <QMessageBox>
 
+#include<DeletePage.h>
+
 
 using namespace std;
 
@@ -29,12 +31,19 @@ public:
 
     static unordered_map<string, int> localFrequencies;
     static unordered_map<string, int> globalFrequencies;
-     
+
+
     //Files functions
     static void writeToFile();
     static void readFile();
     static void readAllTexts();
 
     static vector<string> stringToVector(string text);
+    static string vectorToString(vector<string> text);
+
     static  unordered_map<string, int> countWordFrequency(QString paragraph);
+
+    static int deleteFromText(const QString& text, bool& flag);
+
+
 };

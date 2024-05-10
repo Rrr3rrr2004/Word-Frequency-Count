@@ -15,6 +15,9 @@ public:
 	FinalPage(QWidget *parent = nullptr);
 	~FinalPage();
 
+private slots:
+	void moveToOperations();
+	void quitProgram();
 private:
 	Ui::FinalPageClass *ui;
 };
