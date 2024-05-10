@@ -38,4 +38,3 @@ public:
     static vector<string> stringToVector(string text);
     static  unordered_map<string, int> countWordFrequency(QString paragraph);
 };
-

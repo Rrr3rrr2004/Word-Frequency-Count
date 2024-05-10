@@ -1,6 +1,8 @@
 #pragma once
 #include <QMainWindow>
 #include "ui_UpdatePage.h"
+#include <QStringListModel>
+#include <QCompleter>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class UpdatePageClass; };
@@ -20,9 +22,11 @@ public:
 private slots:
 	void moveToOperations();
 	void moveToFinal();
+	void autoComplete();
+
 
 private:
-	OperationsPage* operationsPage;
-	FinalPage* finalPage;
+	QCompleter* completer;
+	QStringListModel* historyModel;
 	Ui::UpdatePageClass *ui;
 };
