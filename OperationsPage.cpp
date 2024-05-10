@@ -14,11 +14,13 @@ OperationsPage::OperationsPage(QWidget *parent)
 	QPixmap operation("./icons/operation.png");
 	ui->operation->setPixmap(operation.scaled(50, 50, Qt::KeepAspectRatio));
 	connect(ui->displayPara, SIGNAL(clicked()), this, SLOT(moveToDisplayText()));
+	connect(ui->displayFreq, SIGNAL(clicked()), this, SLOT(moveToDisplayFreq()));
+
 	connect(ui->update, SIGNAL(clicked()), this, SLOT(moveToUpdate()));
+
 	connect(ui->delete_2, SIGNAL(clicked()), this, SLOT(moveToDelete()));
 	connect(ui->sortAsc, SIGNAL(clicked()), this, SLOT(moveToAsc()));
 	connect(ui->sortDesc, SIGNAL(clicked()), this, SLOT(moveToDesc()));
-	connect(ui->displayFreq, SIGNAL(clicked()), this, SLOT(moveToDisplayFreq()));
 	connect(ui->diplayRank, SIGNAL(clicked()), this, SLOT(moveToDisplayRank()));
 	connect(ui->search, SIGNAL(clicked()), this, SLOT(moveToSearch()));
 }

@@ -32,25 +32,25 @@ void UploadFile::upload()
 	}
 }
 
-void UploadFile::readFile(QString filePath)
-{
-	QFile file(filePath);
-
-	if (file.open(QIODevice::ReadOnly | QIODevice::Text))
-	{
-		QTextStream in(&file);
-
-		QString QParagraph = in.readAll();
-		// store the Paragraph that in the file in paragraph after convert it to string
-		QString fileContentEdited = QParagraph;
-		fileContentEdited.replace("\n", " ");
-		fileContentEdited = fileContentEdited.toLower();
-		string paragraph = fileContentEdited.toStdString();
-
-		file.close();
-	}
-
-}
+//void UploadFile::readFile(QString filePath)
+//{
+//	QFile file(filePath);
+//
+//	if (file.open(QIODevice::ReadOnly | QIODevice::Text))
+//	{
+//		QTextStream in(&file);
+//
+//		QString QParagraph = in.readAll();
+//		// store the Paragraph that in the file in paragraph after convert it to string
+//		QString fileContentEdited = QParagraph;
+//		fileContentEdited.replace("\n", " ");
+//		fileContentEdited = fileContentEdited.toLower();
+//		string paragraph = fileContentEdited.toStdString();
+//
+//		file.close();
+//	}
+//
+//}
 
 void UploadFile::moveToOperations()
 {

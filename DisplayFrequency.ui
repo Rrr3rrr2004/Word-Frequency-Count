@@ -60,7 +60,7 @@ alternate-background-color: rgb(201, 215, 221);</string>
        </column>
        <column>
         <property name="text">
-         <string>Globla Frequency</string>
+         <string>Global Frequency</string>
         </property>
        </column>
       </widget>
