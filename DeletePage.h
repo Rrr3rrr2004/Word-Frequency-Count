@@ -1,8 +1,6 @@
 #pragma once
 #include <QMainWindow>
 #include "ui_DeletePage.h"
-#include <QStringListModel>
-#include <QCompleter>
 QT_BEGIN_NAMESPACE
 namespace Ui { class DeletePageClass; };
 QT_END_NAMESPACE

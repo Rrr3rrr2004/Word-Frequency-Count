@@ -18,9 +18,6 @@
 #include <QStringListModel>
 #include <QCompleter>
 
-
-
-
 using namespace std;
 
 class GlobalFunctions
