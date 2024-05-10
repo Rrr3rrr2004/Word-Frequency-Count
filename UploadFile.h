@@ -2,9 +2,6 @@
 
 #include <QMainWindow>
 #include "ui_UploadFile.h"
-#include <QMessageBox>
-#include <QFileDialog>
-#include <QFile>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class UploadFileClass; };
