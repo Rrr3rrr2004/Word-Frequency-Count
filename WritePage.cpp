@@ -14,6 +14,8 @@ WritePage::WritePage(QWidget *parent)
 
 void WritePage::moveToOperations()
 {
+    QMessageBox::warning(this, "Warning", "No text provided");
+
     hide();
     operationsPage = new OperationsPage();
     operationsPage->show();
