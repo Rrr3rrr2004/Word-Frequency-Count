@@ -16,7 +16,7 @@ DisplayRank::DisplayRank(QWidget *parent)
 void DisplayRank::moveToOperations()
 {
 	QMessageBox::StandardButton reply = QMessageBox::question(this, "Confirmtion",
-		"Do you want to discard your changes?", QMessageBox::Yes | QMessageBox::No);
+		"Do you want to return to the operations menu?", QMessageBox::Yes | QMessageBox::No);
 
 	if (reply == QMessageBox::Yes)
 	{

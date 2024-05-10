@@ -20,6 +20,7 @@ void WritePage::moveToOperations()
     }
     else
     {
+        GlobalFunctions::QParagraph = ui->writeText->toPlainText();
         hide();
         operationsPage = new OperationsPage();
         operationsPage->show();

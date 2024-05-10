@@ -10,7 +10,7 @@ DeletePage::DeletePage(QWidget *parent)
 	ui->deleteLogo->setPixmap(deleteLogo.scaled(50, 50, Qt::KeepAspectRatio));
 	connect(ui->deleteButton, SIGNAL(clicked()), this, SLOT(deleteText()));
 	connect(ui->delete_allButton, SIGNAL(clicked()), this, SLOT(deleteAllText()));
-	connect(ui->back, SIGNAL(clicked()), this, SLOT(moveToOperations()));
+	connect(ui->back, SIGNAL(triggered()), this, SLOT(moveToOperations()));
 	connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToFinal()));
 }
 

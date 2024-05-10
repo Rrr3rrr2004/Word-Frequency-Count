@@ -15,6 +15,10 @@ public:
 	SortAsc(QWidget *parent = nullptr);
 	~SortAsc();
 
+private slots:
+	void moveToOperations();
+	void moveToFinal();
+
 private:
 	Ui::SortAscClass *ui;
 };

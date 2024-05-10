@@ -16,7 +16,9 @@ public:
 	~DisplayFrequency();
 
 private slots:
+	void moveToOperations();
 	void moveToFinal();
+
 private:
 
 	Ui::DisplayFrequencyClass *ui;
