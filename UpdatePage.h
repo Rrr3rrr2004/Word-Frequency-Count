@@ -1,10 +1,6 @@
 #pragma once
-
 #include <QMainWindow>
 #include "ui_UpdatePage.h"
-
-#include <QPixmap> 
-#include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class UpdatePageClass; };

@@ -20,13 +20,9 @@ public:
 
 private slots:
 	void upload();
-	void readFile(QString filePath);
 	void moveToOperations();
 	void back();
 
 private:
-	//GlobalFunctions global;
-	OperationsPage* operationsPage;
-	HomePage* homePage;
 	Ui::UploadFileClass *ui;
 };

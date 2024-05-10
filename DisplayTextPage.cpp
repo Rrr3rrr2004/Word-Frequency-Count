@@ -13,7 +13,7 @@ DisplayTextPage::DisplayTextPage(QWidget *parent)
 
 void DisplayTextPage::displayPara()
 {
-	ui->display->setText(GlobalFunctions::allTexts);
+	ui->display->setPlainText(GlobalFunctions::allTexts);
 }
 
 //have a change in text "Do you want to return to the operations menu?"

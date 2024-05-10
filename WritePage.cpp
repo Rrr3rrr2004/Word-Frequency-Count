@@ -14,11 +14,16 @@ WritePage::WritePage(QWidget *parent)
 
 void WritePage::moveToOperations()
 {
-    QMessageBox::warning(this, "Warning", "No text provided");
-
-    hide();
-    operationsPage = new OperationsPage();
-    operationsPage->show();
+    if (ui->writeText->toPlainText().isEmpty())
+    {
+        QMessageBox::warning(this, "Warning", "No text provided!!");
+    }
+    else
+    {
+        hide();
+        operationsPage = new OperationsPage();
+        operationsPage->show();
+    }
 }
 
 void WritePage::saveTextToFile()
