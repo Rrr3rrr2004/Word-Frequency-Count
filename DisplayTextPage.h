@@ -20,6 +20,7 @@ public:
 private slots:
 	void displayPara();
 	void moveToOperations1();
+	void moveToFinal();
 
 private:
 	OperationsPage* operationsPage;

@@ -61,7 +61,7 @@ alternate-background-color: rgb(201, 215, 221);</string>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="next">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 243, 207);
 font: 700 10pt &quot;Times New Roman&quot;;</string>

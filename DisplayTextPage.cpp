@@ -1,4 +1,4 @@
-//#include "DisplayTextPage.h"
+#include "DisplayTextPage.h"
 #include "MainWindow.h"
 
 DisplayTextPage::DisplayTextPage(QWidget *parent)
@@ -7,13 +7,13 @@ DisplayTextPage::DisplayTextPage(QWidget *parent)
 {
 	ui->setupUi(this);
 	displayPara();
-	//connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToFinal()));
+	connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToFinal()));
 	connect(ui->back, SIGNAL(triggered()), this, SLOT(moveToOperations1()));
 }
 
 void DisplayTextPage::displayPara()
 {
-	ui->display->setPlainText(GlobalFunctions::allTexts);
+	ui->display->setPlainText(GlobalFunctions::QParagraph);
 }
 
 //have a change in text "Do you want to return to the operations menu?"
@@ -27,6 +27,13 @@ void DisplayTextPage::moveToOperations1()
 		operationsPage = new OperationsPage();
 		operationsPage->show();
 	}
+}
+
+void DisplayTextPage::moveToFinal()
+{
+	hide();
+	FinalPage* finalPage = new FinalPage();
+	finalPage->show();
 }
 
 DisplayTextPage::~DisplayTextPage()
