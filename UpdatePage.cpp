@@ -60,24 +60,12 @@ void UpdatePage::moveToFinal()
 	FinalPage* finalPage = new FinalPage();
 	finalPage->show();
 }
-
 void UpdatePage::autoComplete()
 {
-	//QString p = GlobalFunctions::QParagraph.toLower();
-
-	// Define a regular expression pattern to match punctuation marks
-	//QRegularExpression pattern("\\b|\\W");
-	//QStringList history = p.split(pattern, Qt::SkipEmptyParts);
+	QString enteredText = ui->oldLine->text().toLower();
+	QStringList enteredWords = enteredText.split(QRegularExpression("\\b|\\W"), Qt::SkipEmptyParts);
+	QString lastWord = enteredWords.isEmpty() ? "" : enteredWords.last();
 	QStringList words = GlobalFunctions::QParagraph.toLower().split(" ", Qt::SkipEmptyParts);
-
-	QStringList textLine= ui->oldLine->text().split(QRegularExpression("\\b|\\W"), Qt::SkipEmptyParts);
-	QString lastWord = textLine.isEmpty() ? "" : textLine.last();
-	//QStringList textLine = ui->oldLine->text().split(" ", Qt::SkipEmptyParts);
- 
-	// Split the entered text into individual words
-	//QStringList words = GlobalFunctions::QParagraph.split(QRegularExpression("\\b|\\W"), Qt::SkipEmptyParts);
-
-	// Use a set to remove duplicates
 	QSet<QString> uniqueWords;
 
 	for (const QString& word : words)
@@ -91,14 +79,71 @@ void UpdatePage::autoComplete()
 		filteredList << word;
 	}
 
-	// Convert the set back to a QStringList
-
-	// Set the QStringListModel with the filtered list
 	historyModel->setStringList(filteredList);
 
 	// Set the completion prefix and complete
 	completer->setCompletionPrefix(lastWord);
 	completer->complete();
+
+	qDebug() << "Model Contents:";
+	QStringList modelContents = historyModel->stringList();
+	for (const QString& word : modelContents)
+	{
+		qDebug() << word;
+	}
+}
+
+//void UpdatePage::autoComplete()
+//{
+//	//QString p = GlobalFunctions::QParagraph.toLower();
+//
+//	// Define a regular expression pattern to match punctuation marks
+//	//QRegularExpression pattern("\\b|\\W");
+//	
+//	//QStringList history = p.split(pattern, Qt::SkipEmptyParts);
+//	QString enteredText = ui->oldLine->text().toLower();
+//	QStringList enteredWords = enteredText.split(QRegularExpression("\\b|\\W"), Qt::SkipEmptyParts);
+//	//QStringList textLine = ui->oldLine->text().split(QRegularExpression("\\b|\\W"), Qt::SkipEmptyParts);
+//	QString lastWord = enteredWords.isEmpty() ? "" : enteredWords.last();
+//	QStringList words = GlobalFunctions::QParagraph.toLower().split(" ", Qt::SkipEmptyParts);
+//	//QString enteredWords = ui->oldLine->text().toLower();
+//
+//	//QStringList textLine = ui->oldLine->text().split(" ", Qt::SkipEmptyParts);
+// 
+//	// Split the entered text into individual words
+//	//QStringList words = GlobalFunctions::QParagraph.split(QRegularExpression("\\b|\\W"), Qt::SkipEmptyParts);
+//
+//	// Use a set to remove duplicates
+//	QSet<QString> uniqueWords;
+//
+//	for (const QString& word : words)
+//	{
+//		uniqueWords.insert(word);
+//	}
+//
+//	QStringList filteredList;
+//	for (const QString& word : uniqueWords)
+//	{
+//		filteredList << word;
+//	}
+//
+//	// Clear existing items in the model
+//	//historyModel->removeRows(0, historyModel->rowCount());
+//
+//	// Set the QStringListModel with the filtered list
+//	historyModel->setStringList(filteredList);
+//
+//	// Set the completion prefix and complete
+//	completer->setCompletionPrefix(lastWord);
+//	completer->complete();
+//
+//	qDebug() << "Model Contents:";
+//	QStringList modelContents = historyModel->stringList();
+//	for (const QString& word : modelContents)
+//	{
+//		qDebug() << word;
+//	}
+//}
 
 	//// Add the entered text to the history
 	////QString p = GlobalFunctions::QParagraph.toLower();
@@ -135,7 +180,26 @@ void UpdatePage::autoComplete()
 
 	//completer->setCompletionPrefix(ui->oldLine->text());
 	//completer->complete();
-}
+//void UpdatePage::autoComplete()
+//{
+//	// Get the entered text
+//	QString enteredText = ui->oldLine->text().toLower();
+//
+//	// Set the completion prefix to the entire entered text
+//	completer->setCompletionPrefix(enteredText);
+//
+//	// Complete the auto-completion
+//	completer->complete();
+//
+//	// Print the contents of the model for debugging
+//	qDebug() << "Model Contents:";
+//	QStringList modelContents = historyModel->stringList();
+//	for (const QString& word : modelContents)
+//	{
+//		qDebug() << word;
+//	}
+//}
+
 
 UpdatePage::~UpdatePage()
 {
