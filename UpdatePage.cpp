@@ -27,7 +27,6 @@ UpdatePage::UpdatePage(QWidget *parent)
 	connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToFinal()));
 	connect(ui->back, SIGNAL(triggered()), this, SLOT(moveToOperations()));
 
-
 	//// Create a QLineEdit widget
 	//lineEdit = new QLineEdit(searchPage);
 	//historyModel = new QStringListModel(searchPage);
@@ -36,10 +35,7 @@ UpdatePage::UpdatePage(QWidget *parent)
 	//completer->setCaseSensitivity(Qt::CaseInsensitive); // Optional: Case insensitive completion
 	//// Set the completer to provide suggestions as the user types
 	//completer->setCompletionMode(QCompleter::PopupCompletion);
-
 	//// Set the completer to the line edit widget
-
-
 	//// Connect the returnPressed signal of the line edit to a slot to update the history
 	//connect(lineEdit, &QLineEdit::textChanged, this, &MainWindow::autoComplete);
 
@@ -67,12 +63,12 @@ void UpdatePage::moveToFinal()
 
 void UpdatePage::autoComplete()
 {
-	QString p = GlobalFunctions::QParagraph.toLower();
+	//QString p = GlobalFunctions::QParagraph.toLower();
 
 	// Define a regular expression pattern to match punctuation marks
 	//QRegularExpression pattern("\\b|\\W");
 	//QStringList history = p.split(pattern, Qt::SkipEmptyParts);
-	QStringList words = p.split(" ", Qt::SkipEmptyParts);
+	QStringList words = GlobalFunctions::QParagraph.toLower().split(" ", Qt::SkipEmptyParts);
 
 	QStringList textLine= ui->oldLine->text().split(QRegularExpression("\\b|\\W"), Qt::SkipEmptyParts);
 	QString lastWord = textLine.isEmpty() ? "" : textLine.last();
