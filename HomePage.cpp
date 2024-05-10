@@ -1,10 +1,5 @@
-#include "HomePage.h"
+//#include "HomePage.h"
 #include "MainWindow.h"
-
-
-#include <QPixmap> 
-#include <QMessageBox>
-
 
 HomePage::HomePage(QWidget *parent)
 	: QMainWindow(parent)

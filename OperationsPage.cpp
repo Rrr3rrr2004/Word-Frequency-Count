@@ -1,26 +1,26 @@
 #pragma once
 #include "MainWindow.h"
-//#include "OperationsPage.h"
-//#include "MainWindow.h"
-
-//#include <QPixmap> 
-//#include <QMessageBox>
 
 OperationsPage::OperationsPage(QWidget *parent)
 	: QMainWindow(parent)
 	, ui(new Ui::OperationsPageClass())
 {
-	GlobalFunctions::countWordFrequency();
+	GlobalFunctions::allTexts = "";
+	GlobalFunctions::readAllTexts();
+	GlobalFunctions::localFrequencies = GlobalFunctions::countWordFrequency(GlobalFunctions::QParagraph);
+	GlobalFunctions::globalFrequencies = GlobalFunctions::countWordFrequency(GlobalFunctions::allTexts);
 
 	ui->setupUi(this);
 	QPixmap operation("./icons/operation.png");
 	ui->operation->setPixmap(operation.scaled(50, 50, Qt::KeepAspectRatio));
 	connect(ui->displayPara, SIGNAL(clicked()), this, SLOT(moveToDisplayText()));
+	connect(ui->displayFreq, SIGNAL(clicked()), this, SLOT(moveToDisplayFreq()));
+
 	connect(ui->update, SIGNAL(clicked()), this, SLOT(moveToUpdate()));
+
 	connect(ui->delete_2, SIGNAL(clicked()), this, SLOT(moveToDelete()));
 	connect(ui->sortAsc, SIGNAL(clicked()), this, SLOT(moveToAsc()));
 	connect(ui->sortDesc, SIGNAL(clicked()), this, SLOT(moveToDesc()));
-	connect(ui->displayFreq, SIGNAL(clicked()), this, SLOT(moveToDisplayFreq()));
 	connect(ui->diplayRank, SIGNAL(clicked()), this, SLOT(moveToDisplayRank()));
 	connect(ui->search, SIGNAL(clicked()), this, SLOT(moveToSearch()));
 }

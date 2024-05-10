@@ -55,7 +55,12 @@ alternate-background-color: rgb(201, 215, 221);</string>
        </column>
        <column>
         <property name="text">
-         <string>Frequency</string>
+         <string>Local Frequency</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Global Frequency</string>
         </property>
        </column>
       </widget>
@@ -73,23 +78,6 @@ font: 700 10pt &quot;Times New Roman&quot;;</string>
      </item>
     </layout>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>601</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuFile">
-    <property name="title">
-     <string>File</string>
-    </property>
-    <addaction name="back"/>
-   </widget>
-   <addaction name="menuFile"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">

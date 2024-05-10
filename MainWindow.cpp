@@ -1,10 +1,5 @@
 #include "MainWindow.h"
 
-//#include <QPixmap> 
-//#include <QMessageBox>
-
-
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindowClass())
@@ -19,7 +14,6 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::moveToHome()
 {
-    //try 
     hide();
     homePage = new HomePage();
     homePage->show();
