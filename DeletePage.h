@@ -16,6 +16,11 @@ public:
 	DeletePage(QWidget *parent = nullptr);
 	~DeletePage();
 
+private slots:
+	void moveToOperations();
+	void moveToFinal();
+	void displayPara();
+
 private:
 	
 	Ui::DeletePageClass *ui;
