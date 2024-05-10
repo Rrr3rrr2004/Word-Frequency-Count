@@ -15,8 +15,10 @@
 #include <QFile>
 #include <QPixmap> 
 #include <QMessageBox>
+#include <QStringListModel>
+#include <QCompleter>
 
-#include<DeletePage.h>
+
 
 
 using namespace std;
@@ -32,7 +34,6 @@ public:
     static unordered_map<string, int> localFrequencies;
     static unordered_map<string, int> globalFrequencies;
 
-
     //Files functions
     static void writeToFile();
     static void readFile();
@@ -44,6 +45,5 @@ public:
     static  unordered_map<string, int> countWordFrequency(QString paragraph);
 
     static int deleteFromText(const QString& text, bool& flag);
-
-
+    static void autoComplete(const QString& word, QStringListModel* wordsModel, QCompleter* autoCompleter);
 };

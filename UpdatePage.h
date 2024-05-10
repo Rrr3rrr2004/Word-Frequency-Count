@@ -22,7 +22,7 @@ public:
 private slots:
 	void moveToOperations();
 	void moveToFinal();
-	void autoComplete();
+	void autoCompletion();
 	void updateText();
 
 
