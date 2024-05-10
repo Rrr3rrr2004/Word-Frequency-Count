@@ -22,7 +22,6 @@ private slots:
 	void upload();
 	void moveToOperations();
 	void back();
-
 private:
 	Ui::UploadFileClass *ui;
 };
