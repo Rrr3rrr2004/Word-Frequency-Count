@@ -44,3 +44,4 @@ DeletePage::~DeletePage()
 {
 	delete ui;
 }
+//update
