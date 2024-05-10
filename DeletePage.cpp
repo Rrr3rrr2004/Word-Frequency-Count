@@ -1,5 +1,4 @@
 #include "MainWindow.h"
-
 DeletePage::DeletePage(QWidget *parent)
 	: QMainWindow(parent)
 	, ui(new Ui::DeletePageClass())
@@ -8,9 +7,19 @@ DeletePage::DeletePage(QWidget *parent)
 	QPixmap deleteLogo("./icons/delete.png");
 	ui->display->setPlainText(GlobalFunctions::QParagraph);
 	ui->deleteLogo->setPixmap(deleteLogo.scaled(50, 50, Qt::KeepAspectRatio));
+
+	hisModel = new QStringListModel(this);
+	comp = new QCompleter(hisModel, this);
+	comp->setCaseSensitivity(Qt::CaseInsensitive);
+	comp->setCompletionMode(QCompleter::PopupCompletion);
+
+	ui->delText->setCompleter(comp);
+
+	connect(ui->delText, SIGNAL(textChanged(QString)), this, SLOT(autoCompletion()));
+
 	connect(ui->deleteButton, SIGNAL(clicked()), this, SLOT(deleteText()));
 	connect(ui->delete_allButton, SIGNAL(clicked()), this, SLOT(deleteAllText()));
-	connect(ui->back, SIGNAL(clicked()), this, SLOT(moveToOperations()));
+	connect(ui->back, SIGNAL(triggered()), this, SLOT(moveToOperations()));
 	connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToFinal()));
 }
 
@@ -56,6 +65,10 @@ void DeletePage::deleteAllText()
 	QMessageBox::information(this, "Congraturaltion", "Your Text is Deleted Successfully");
 }
 
+void DeletePage::autoCompletion()
+{
+	GlobalFunctions::autoComplete(ui->delText->text(), hisModel, comp);
+}
 
 DeletePage::~DeletePage()
 {

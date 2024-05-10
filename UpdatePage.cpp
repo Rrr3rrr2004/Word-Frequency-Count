@@ -1,6 +1,6 @@
 #include "MainWindow.h"
 
-UpdatePage::UpdatePage(QWidget *parent)
+UpdatePage::UpdatePage(QWidget* parent)
 	: QMainWindow(parent)
 	, ui(new Ui::UpdatePageClass())
 {
@@ -18,9 +18,9 @@ UpdatePage::UpdatePage(QWidget *parent)
 	ui->oldLine->setCompleter(completer);
 	ui->newLine->setCompleter(completer);
 
-	connect(ui->oldLine, SIGNAL(textChanged(QString)), this, SLOT(autoComplete()));
+	connect(ui->oldLine, SIGNAL(textChanged(QString)), this, SLOT(autoCompletion()));
 	//connect(ui->newLine, SIGNAL(textChanged(QString)), this, SLOT(autoComplete()));
-
+	connect(ui->updateButton, SIGNAL(clicked()), this, SLOT(updateText()));
 	connect(ui->back, SIGNAL(triggered()), this, SLOT(moveToOperations()));
 	connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToFinal()));
 }
@@ -39,44 +39,21 @@ void UpdatePage::moveToOperations()
 
 void UpdatePage::moveToFinal()
 {
-	updateText();
 	GlobalFunctions::writeToFile();
 	hide();
 	FinalPage* finalPage = new FinalPage();
 	finalPage->show();
 }
 
-void UpdatePage::autoComplete()
+void UpdatePage::autoCompletion()
 {
-	QString p = GlobalFunctions::QParagraph.toLower();
-
-	// Define a regular expression pattern to match punctuation marks
-	QRegularExpression pattern("\\b|\\W");
-	QStringList history = p.split(pattern, Qt::SkipEmptyParts);
-
-	QSet<QString> uniqueWords;
-	for (const QString& word : history)
-	{
-		uniqueWords.insert(word);
-	}
-
-	QStringList filteredList;
-	for (const QString& word : uniqueWords)
-	{
-		filteredList << word;
-	}
-	historyModel->setStringList(filteredList);
-
-	// Set the completion prefix and complete
-	completer->setCompletionPrefix(ui->oldLine->text());
-	//completer->setCompletionPrefix(ui->newLine->text());
-	completer->complete();
+	GlobalFunctions::autoComplete(ui->oldLine->text(), historyModel, completer);
 }
 
 void UpdatePage::updateText()
 {
 	bool flag = 0;
-	int index = GlobalFunctions::deleteFromText(ui->oldLine->text(),flag);
+	int index = GlobalFunctions::deleteFromText(ui->oldLine->text(), flag);
 	if (!flag)
 	{
 		QMessageBox::information(this, "Warning!!", ui->oldLine->text() + "\nIS NOT VALID IN YOUR TEXT!!\nPlease, Enter another Sentance.");
@@ -85,13 +62,10 @@ void UpdatePage::updateText()
 	{
 		string sNewText = ui->newLine->text().toStdString();
 		vector<string> newVector = GlobalFunctions::stringToVector(sNewText);
-	
+
 		QString paragraph = GlobalFunctions::QParagraph;
 		vector<string> paraVector = GlobalFunctions::stringToVector(paragraph.replace("\n", " ").toLower().toStdString());
 
-		//if (index != -1)
-		//{
-		//}
 		for (int i = 0; i < newVector.size(); i++)
 		{
 			paraVector.insert(paraVector.begin() + index, newVector[i]);

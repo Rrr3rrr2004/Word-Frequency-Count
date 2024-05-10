@@ -212,3 +212,29 @@ int GlobalFunctions::deleteFromText(const QString& text, bool& flag)
 	return index;
 }
 
+void GlobalFunctions::autoComplete(const QString& word, QStringListModel* wordsModel, QCompleter* autoCompleter)
+{
+	QString p = GlobalFunctions::QParagraph.toLower();
+
+	// Define a regular expression pattern to match punctuation marks
+	QRegularExpression pattern("\\b|\\W");
+	QStringList history = p.split(pattern, Qt::SkipEmptyParts);
+
+	QSet<QString> uniqueWords;
+	for (const QString& word : history)
+	{
+		uniqueWords.insert(word);
+	}
+
+	QStringList filteredList;
+	for (const QString& word : uniqueWords)
+	{
+		filteredList << word;
+	}
+	wordsModel->setStringList(filteredList);
+
+	// Set the completion prefix and complete
+	autoCompleter->setCompletionPrefix(word);
+	//completer->setCompletionPrefix(ui->newLine->text());
+	autoCompleter->complete();
+}
