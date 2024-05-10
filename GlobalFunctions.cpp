@@ -238,3 +238,72 @@ void GlobalFunctions::autoComplete(const QString& word, QStringListModel* wordsM
 	//completer->setCompletionPrefix(ui->newLine->text());
 	autoCompleter->complete();
 }
+int levenshteinDistance(const QString& word1, const QString& word2) {
+	int m = word1.size();
+	int n = word2.size();
+
+	QVector<QVector<int>> dp(m + 1, QVector<int>(n + 1, 0));
+
+	for (int i = 0; i <= m; ++i) {
+		for (int j = 0; j <= n; ++j) {
+			if (i == 0) {
+				dp[i][j] = j;
+			}
+			else if (j == 0) {
+				dp[i][j] = i;
+			}
+			else if (word1[i - 1] == word2[j - 1]) {
+				dp[i][j] = dp[i - 1][j - 1];
+			}
+			else {
+				dp[i][j] = 1 + qMin({ dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1] });
+			}
+		}
+
+	}
+	return dp[m][n];
+}
+
+// Function to load words from a file into a vector
+QVector<QString> LoadDictionary(const QString& filepath) {
+	QVector<QString> dictionary;
+	QFile file(filepath);
+	if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+		qWarning() << "Failed to open file:" << filepath;
+		return dictionary; // Return empty dictionary if file cannot be opened
+	}
+	QTextStream in(&file);
+	while (!in.atEnd()) {
+		QString line = in.readLine();
+		dictionary.append(line);
+	}
+	file.close();
+	qSort(dictionary);
+	return dictionary;
+}
+
+// Function to perform autocorrection for the search term
+string autocorrect(const string& searchTerm, const QVector<QString> Dictionary) {
+	// Threshold for maximum edit distance
+	const int maxEditDistance = 2;
+
+	// Vector to store candidate words
+	vector<pair<int, string>> candidates;
+
+	// Iterate through each word in the word frequencies map
+	for (auto it = Dictionary.begin(); it != Dictionary.end(); ++it) {
+		const string& word = it->first; //editDistance
+		int distance = calculateEditDistance(searchTerm, word);
+
+		// If the edit distance is within the threshold, add the word to candidates
+		if (distance <= maxEditDistance) {
+			candidates.emplace_back(distance, word); // emplace_back(1, 2) = push_back(obj(1, 2) )
+		}
+	}
+
+	// Sort candidates based on edit distance
+	sort(candidates.begin(), candidates.end());
+
+	// Return the closest word if found, otherwise return the original search term
+	return candidates.empty() ? searchTerm : candidates[0].second;
+}
