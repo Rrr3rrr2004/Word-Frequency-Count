@@ -15,6 +15,10 @@ public:
 	SearchPage(QWidget *parent = nullptr);
 	~SearchPage();
 
+private slots:
+	void moveToOperations();
+	void moveToFinal();
+
 private:
 	Ui::SearchPageClass *ui;
 };
