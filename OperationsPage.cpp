@@ -5,7 +5,9 @@ OperationsPage::OperationsPage(QWidget *parent)
 	: QMainWindow(parent)
 	, ui(new Ui::OperationsPageClass())
 {
-	GlobalFunctions::localFrequencies = GlobalFunctions::countWordFrequency(GlobalFunctions::paragraph);
+	GlobalFunctions::allTexts = "";
+	GlobalFunctions::readAllTexts();
+	GlobalFunctions::localFrequencies = GlobalFunctions::countWordFrequency(GlobalFunctions::QParagraph);
 	GlobalFunctions::globalFrequencies = GlobalFunctions::countWordFrequency(GlobalFunctions::allTexts);
 
 	ui->setupUi(this);

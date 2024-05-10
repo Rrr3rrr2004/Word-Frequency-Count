@@ -15,6 +15,9 @@ public:
 	DisplayFrequency(QWidget *parent = nullptr);
 	~DisplayFrequency();
 
+private slots:
+	void moveToFinal();
 private:
+
 	Ui::DisplayFrequencyClass *ui;
 };

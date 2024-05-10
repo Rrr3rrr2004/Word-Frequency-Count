@@ -26,20 +26,20 @@ void WritePage::saveTextToFile()
     GlobalFunctions::QParagraph = ui->writeText->toPlainText();
 
     //editing the text
-    QString QParagraphEdited = ui->writeText->toPlainText();
-    QParagraphEdited.replace("\n", " ");
-    QParagraphEdited = QParagraphEdited.toLower();
+    //QString QParagraphEdited = ui->writeText->toPlainText();
+    //QParagraphEdited.replace("\n", " ");
+    //QParagraphEdited = QParagraphEdited.toLower();
 
     //string text after editing
-    GlobalFunctions::paragraph = QParagraphEdited.toStdString();
+    //GlobalFunctions::paragraph = QParagraphEdited.toStdString();
 
     //Open a file dialog to specify the file path
-    QString filePath = QFileDialog::getSaveFileName(this, tr("Save File"), "",
+    GlobalFunctions::filePath = QFileDialog::getSaveFileName(this, tr("Save File"), "",
         tr("Text Files (*.txt)"));
 
-    if (!filePath.isEmpty())
+    if (!GlobalFunctions::filePath.isEmpty())
     {
-        GlobalFunctions::writeToFile(filePath);
+        GlobalFunctions::writeToFile();
     }
 }
 

@@ -122,23 +122,7 @@ font: 700 9pt &quot;Traditional Arabic&quot;;</string>
     </layout>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>569</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menufile">
-    <property name="title">
-     <string>file</string>
-    </property>
-    <addaction name="close"/>
-   </widget>
-   <addaction name="menufile"/>
-  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -148,7 +132,6 @@ font: 700 9pt &quot;Traditional Arabic&quot;;</string>
    </attribute>
    <addaction name="close"/>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
   <action name="close">
    <property name="icon">
     <iconset>

@@ -16,8 +16,8 @@
 #include "DisplayRank.h"
 #include "SearchPage.h"
 #include "FinalPage.h"
+
 #include "GlobalFunctions.h"
-using namespace std;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindowClass; };
