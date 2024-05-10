@@ -18,6 +18,7 @@ void WritePage::moveToOperations()
     {
         QMessageBox::warning(this, "Warning", "No text provided!!");
     }
+
     else
     {
         GlobalFunctions::QParagraph = ui->writeText->toPlainText();
