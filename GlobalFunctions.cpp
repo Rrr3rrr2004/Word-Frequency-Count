@@ -1,6 +1,7 @@
 #include "GlobalFunctions.h"
 #include "ui_FinalPage.h"
 
+
 QString GlobalFunctions::QParagraph;
 //string GlobalFunctions::paragraph;
 QString GlobalFunctions::allTexts;
@@ -238,7 +239,7 @@ void GlobalFunctions::autoComplete(const QString& word, QStringListModel* wordsM
 	//completer->setCompletionPrefix(ui->newLine->text());
 	autoCompleter->complete();
 }
-int levenshteinDistance(const QString& word1, const QString& word2) {
+int calculateDistance(const QString& word1, const QString& word2) {
 	int m = word1.size();
 	int n = word2.size();
 
@@ -265,25 +266,25 @@ int levenshteinDistance(const QString& word1, const QString& word2) {
 }
 
 // Function to load words from a file into a vector
-QVector<QString> LoadDictionary(const QString& filepath) {
-	QVector<QString> dictionary;
-	QFile file(filepath);
-	if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-		qWarning() << "Failed to open file:" << filepath;
-		return dictionary; // Return empty dictionary if file cannot be opened
-	}
-	QTextStream in(&file);
-	while (!in.atEnd()) {
-		QString line = in.readLine();
-		dictionary.append(line);
-	}
-	file.close();
-	qSort(dictionary);
-	return dictionary;
-}
+//QVector<QString> LoadDictionary(const QString& filepath) {
+	//QVector<QString> dictionary;
+	//QFile file(filepath);
+	//if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+		//qWarning() << "Failed to open file:" << filepath;
+		//return dictionary; // Return empty dictionary if file cannot be opened
+	//}
+	//QTextStream in(&file);
+	//while (!in.atEnd()) {
+		//QString line = in.readLine();
+		//dictionary.append(line);
+	//}
+	//file.close();
+	//qSort(dictionary);
+	//return dictionary;
+//}
 
 // Function to perform autocorrection for the search term
-string autocorrect(const string& searchTerm, const QVector<QString> Dictionary) {
+string autocorrect(const string& searchTerm, const QVector<QString> Dictionary){
 	// Threshold for maximum edit distance
 	const int maxEditDistance = 2;
 
@@ -293,7 +294,7 @@ string autocorrect(const string& searchTerm, const QVector<QString> Dictionary) 
 	// Iterate through each word in the word frequencies map
 	for (auto it = Dictionary.begin(); it != Dictionary.end(); ++it) {
 		const string& word = it->first; //editDistance
-		int distance = calculateEditDistance(searchTerm, word);
+		int distance = calculateDistance(searchTerm, word);
 
 		// If the edit distance is within the threshold, add the word to candidates
 		if (distance <= maxEditDistance) {

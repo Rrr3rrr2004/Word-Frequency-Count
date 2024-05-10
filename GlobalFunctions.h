@@ -17,6 +17,7 @@
 #include <QMessageBox>
 #include <QStringListModel>
 #include <QCompleter>
+#include <QAlgorithm>
 
 using namespace std;
 
@@ -43,4 +44,9 @@ public:
 
     static int deleteFromText(const QString& text, bool& flag);
     static void autoComplete(const QString& word, QStringListModel* wordsModel, QCompleter* autoCompleter);
+
+    int calculateDistance(const QString& word1, const QString& word2);
+    static QVector<QString> LoadDictionary(const QString& filepath);
+    static string autocorrect(const string& searchTerm, const QVector<QString> Dictionary);
+
 };
