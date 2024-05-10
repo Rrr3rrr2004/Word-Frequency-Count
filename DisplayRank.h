@@ -15,6 +15,10 @@ public:
 	DisplayRank(QWidget *parent = nullptr);
 	~DisplayRank();
 
+private slots:
+	void moveToOperations();
+	void moveToFinal();
+
 private:
 	Ui::DisplayRankClass *ui;
 };
