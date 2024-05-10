@@ -14,7 +14,7 @@
    <string>DisplayTextPage</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="display">
+   <widget class="QLabel" name="title">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -60,7 +60,7 @@ font: 700 10pt &quot;Times New Roman&quot;;</string>
      </item>
     </layout>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QTextEdit" name="display">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -73,6 +73,23 @@ font: 700 10pt &quot;Times New Roman&quot;;</string>
      <bool>true</bool>
     </property>
    </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="back"/>
+   </widget>
+   <addaction name="menuFile"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
