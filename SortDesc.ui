@@ -42,7 +42,7 @@ font: 700 12pt &quot;Times New Roman&quot;;</string>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QTableWidget" name="tableWidget">
+      <widget class="QTableWidget" name="sortDescTable">
        <property name="styleSheet">
         <string notr="true">color: rgb(99, 122, 159);
 font: 700 10pt &quot;Traditional Arabic&quot;;

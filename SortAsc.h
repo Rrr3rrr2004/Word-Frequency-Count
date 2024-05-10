@@ -1,7 +1,8 @@
 #pragma once
-
 #include <QMainWindow>
 #include "ui_SortAsc.h"
+#include <map>
+#include <string>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class SortAscClass; };
@@ -20,5 +21,7 @@ private slots:
 	void moveToFinal();
 
 private:
+	std::multimap<int, std::string> sortWordsAsc();
+	//multimap<int, string> sortedMap;
 	Ui::SortAscClass *ui;
 };

@@ -31,26 +31,19 @@ color: rgb(99, 122, 159);</string>
      <string>Enter you paragraph:</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="writeText">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>581</width>
-      <height>181</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>230</y>
-      <width>571</width>
-      <height>101</height>
+      <x>10</x>
+      <y>50</y>
+      <width>580</width>
+      <height>290</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QTextEdit" name="writeText"/>
+     </item>
      <item>
       <widget class="QPushButton" name="saveFile">
        <property name="sizePolicy">
@@ -104,16 +97,6 @@ font: 700 10pt &quot;Times New Roman&quot;;</string>
      </item>
     </layout>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>600</width>
-     <height>21</height>
-    </rect>
-   </property>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">

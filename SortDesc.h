@@ -3,6 +3,7 @@
 #include <QMainWindow>
 #include "ui_SortDesc.h"
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class SortDescClass; };
 QT_END_NAMESPACE
@@ -20,5 +21,6 @@ private slots:
 	void moveToFinal();
 
 private:
+	multimap<int, string, greater<int>> sortWordsDesc();
 	Ui::SortDescClass *ui;
 };
