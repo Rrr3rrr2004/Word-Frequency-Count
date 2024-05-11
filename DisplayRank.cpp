@@ -50,11 +50,18 @@ vector<pair<string, int>> DisplayRank::populateWordRanksTable()
         {
             if (pair.first != r[r.size() - 1].second)
             {
-                r.push_back(make_pair(pair.second, rank++));
+                r.push_back(make_pair(pair.second, ++rank));
                 continue;
             }
+            else
+            {
+                r.push_back(make_pair(pair.second, rank));
+            }
         }
-        r.push_back(make_pair(pair.second, rank++));
+        else
+        {
+            r.push_back(make_pair(pair.second, rank));
+        }
     }
     return r;
 }
