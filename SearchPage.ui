@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>595</width>
-    <height>425</height>
+    <height>460</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,86 +18,13 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>60</y>
+      <y>120</y>
       <width>501</width>
-      <height>326</height>
+      <height>151</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QLabel" name="subTitle1">
-       <property name="styleSheet">
-        <string notr="true">color: rgb(232, 200, 114);
-font: 700 12pt &quot;Times New Roman&quot;;</string>
-       </property>
-       <property name="text">
-        <string>Enter the the word you want to display its frequency:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLineEdit" name="searchLine">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0">
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <widget class="QLabel" name="label_3">
-         <property name="styleSheet">
-          <string notr="true">font: 700 12pt &quot;Times New Roman&quot;;
-color: rgb(99, 122, 159);</string>
-         </property>
-         <property name="text">
-          <string>Word Frequency in all texts:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QTextEdit" name="wordFreqGlobal"/>
-       </item>
-      </layout>
-     </item>
-     <item row="3" column="0">
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QLabel" name="label_2">
-         <property name="styleSheet">
-          <string notr="true">font: 700 12pt &quot;Times New Roman&quot;;
-color: rgb(99, 122, 159);</string>
-         </property>
-         <property name="text">
-          <string>Word Frequency in the this text:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QTextEdit" name="wordFreqLocal"/>
-       </item>
-      </layout>
-     </item>
      <item row="4" column="0">
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Orientation::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Policy::Minimum</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="6" column="0">
       <widget class="QPushButton" name="next">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -115,20 +42,61 @@ font: 700 10pt &quot;Times New Roman&quot;;</string>
       </widget>
      </item>
      <item row="2" column="0">
-      <spacer name="verticalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Orientation::Vertical</enum>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="styleSheet">
+          <string notr="true">font: 700 12pt &quot;Times New Roman&quot;;
+color: rgb(99, 122, 159);</string>
+         </property>
+         <property name="text">
+          <string>Word Frequency in the this text:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="wordFreqLocal"/>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="subTitle1">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(232, 200, 114);
+font: 700 12pt &quot;Times New Roman&quot;;</string>
        </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Policy::Minimum</enum>
+       <property name="text">
+        <string>Enter the the word you want to display its frequency:</string>
        </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="styleSheet">
+          <string notr="true">font: 700 12pt &quot;Times New Roman&quot;;
+color: rgb(99, 122, 159);</string>
+         </property>
+         <property name="text">
+          <string>Word Frequency in all texts:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="wordFreqGlobal"/>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLineEdit" name="searchLine">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
-      </spacer>
+      </widget>
      </item>
     </layout>
    </widget>
