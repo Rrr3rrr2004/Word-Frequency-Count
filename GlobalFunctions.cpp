@@ -295,6 +295,21 @@ string GlobalFunctions::autoCorrect(const string& searchTerm)
 	return candidates.empty() ? searchTerm : candidates[0].second;
 }
 
+QString GlobalFunctions::getLastWord(const QString& text) {
+	// Split the text into individual words
+	QStringList words = text.split(QRegularExpression("\\b|\\W"), Qt::SkipEmptyParts);
+
+	// Check if there are any words
+	if (!words.isEmpty()) {
+		// Return the last word
+		return words.last();
+	}
+	else {
+		// Return an empty string if there are no words
+		return QString();
+	}
+}
+
 // Function to load words from a file into a vector
 //QVector<QString> LoadDictionary(const QString& filepath) {
 //	QVector<QString> dictionary;

@@ -5,8 +5,16 @@ SearchPage::SearchPage(QWidget *parent)
 	, ui(new Ui::SearchPageClass())
 {
 	ui->setupUi(this);
+
+	hisModel = new QStringListModel(this);
+	comp = new QCompleter(hisModel, this);
+	comp->setCaseSensitivity(Qt::CaseInsensitive);
+	comp->setCompletionMode(QCompleter::PopupCompletion);
+
+	ui->searchLine->setCompleter(comp);
+
+	connect(ui->searchLine, SIGNAL(textChanged(QString)), this, SLOT(autoCompletion()));
 	connect(ui->searchLine, SIGNAL(returnPressed()), this, SLOT(autoCorrection()));
-	//connect(ui->searchLine, SIGNAL(textChanged()), this, SLOT(autoCorrection()));
 	connect(ui->back, SIGNAL(triggered()), this, SLOT(moveToOperations()));
 	connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToFinal()));
 }
@@ -31,38 +39,21 @@ void SearchPage::moveToFinal()
 	finalPage->show();
 }
 
-//void SearchPage::searchWordFrequency( QString& word,  QMap<QString, int> wordFreqMap) {
-//	auto it = wordFreqMap.find(word);
-//	if (it != wordFreqMap.end()) {
-//		qDebug() << "Frequency of '" << word << "': " << it.value() << "\n";
-//	}
-//	else {
-//		qDebug() << "Word '" << word << "' not found in the paragraph.\n";
-//	}
-//}
-
-
-QString SearchPage::getLastWord(const QString& text) {
-	// Split the text into individual words
-	QStringList words = text.split(QRegularExpression("\\b|\\W"), Qt::SkipEmptyParts);
-
-	// Check if there are any words
-	if (!words.isEmpty()) {
-		// Return the last word
-		return words.last();
-	}
-	else {
-		// Return an empty string if there are no words
-		return QString();
-	}
+void SearchPage::autoCompletion()
+{
+	GlobalFunctions::autoComplete(ui->searchLine->text(), hisModel, comp);
 }
 
 void SearchPage::autoCorrection()
 {
-	QString text = ui->searchLine->text();
-	string word = GlobalFunctions::autoCorrect(getLastWord(text).toStdString());
+	//QString text = ui->searchLine->text();
+	string word = GlobalFunctions::autoCorrect(ui->searchLine->text().toStdString());
 	//ui->searchLine->clear();
 	ui->searchLine->setText(QString::fromStdString(word));
+	int freq = GlobalFunctions::localFrequencies[word];
+	ui->wordFreqLocal->setPlainText(QString::number(freq));
+	freq = GlobalFunctions::globalFrequencies[word];
+	ui->wordFreqGlobal->setPlainText(QString::number(freq));
 }
 
 SearchPage::~SearchPage()

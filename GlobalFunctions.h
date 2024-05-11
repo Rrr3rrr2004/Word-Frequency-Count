@@ -11,7 +11,6 @@
 #include <QVector>
 #include <QTableWidget>
 #include <QTableWidgetItem>
-#include <QCoreApplication>
 #include <QFileDialog>
 #include <QFile>
 #include <QPixmap> 
@@ -19,7 +18,6 @@
 #include <QStringListModel>
 #include <QCompleter>
 #include <algorithm>
-#include <QPair>
 
 using namespace std;
 
@@ -48,6 +46,7 @@ public:
 
     static string autoCorrect(const string& searchTerm);
     static int calculateDistance(const string& word1, const string& word2);
+    static QString getLastWord(const QString& text);
     //static QVector<QString> LoadDictionary(const QString& filepath);
 
 };

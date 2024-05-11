@@ -1,6 +1,8 @@
 #pragma once
 #include <QMainWindow>
 #include "ui_SearchPage.h"
+#include <QStringListModel>
+#include <QCompleter>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class SearchPageClass; };
@@ -17,9 +19,13 @@ public:
 private slots:
 	void moveToOperations();
 	void moveToFinal();
+	void autoCompletion();
 	void autoCorrection();
-	QString getLastWord(const QString& text);
+	//QString getLastWord(const QString& text);
 	//void searchWordFrequency(string, map<QString, int>);
 private:
+	QCompleter* comp;
+	QStringListModel* hisModel;
+
 	Ui::SearchPageClass *ui;
 };
