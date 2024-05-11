@@ -18,6 +18,7 @@ public:
 private slots:
 	void moveToOperations();
 	void moveToFinal();
+	void SearchPage::searchWordFrequency(const QString& word, const QMap<QString, int>& wordFreqMap)
 
 private:
 	Ui::SearchPageClass *ui;
