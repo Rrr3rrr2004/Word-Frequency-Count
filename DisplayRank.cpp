@@ -37,3 +37,5 @@ DisplayRank::~DisplayRank()
 {
 	delete ui;
 }
+	multimap<int, string, greater<int>> sortedMap;
+	for ( auto& pair : GlobalFunctions::globalFrequencies) {
