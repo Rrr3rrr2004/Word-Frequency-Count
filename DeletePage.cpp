@@ -83,6 +83,7 @@ void DeletePage::autoCompletion()
 	GlobalFunctions::autoComplete(ui->delText->text(), hisModel, comp);
 }
 
+
 //void DeletePage::on_plainTextEdit_textChanged()
 //{
 //	QString paragraphText = ui->delText->toPlainText();
