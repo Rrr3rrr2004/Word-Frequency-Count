@@ -43,13 +43,9 @@ void DisplayRank::moveToFinal()
 vector<pair<string, int>> DisplayRank::populateWordRanksTable()
 {
     multimap<int, string, greater<int>> sortedMap = SortDesc::sortWordsDesc();
-
-    //unordered_map<int, int> rankMap;  // Map to store rank for each frequency
     int rank = 1;
-    
     vector<pair<string, int>> r;
     for (auto pair : sortedMap) {
-        //int frequency = pair.first;
         if (!r.empty())
         {
             if (pair.first != r[r.size() - 1].second)
