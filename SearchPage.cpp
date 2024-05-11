@@ -1,13 +1,12 @@
-#include "SearchPage.h"
 #include "MainWindow.h"
-#include <QPixmap> 
-#include <QMessageBox>
 
 SearchPage::SearchPage(QWidget *parent)
 	: QMainWindow(parent)
 	, ui(new Ui::SearchPageClass())
 {
 	ui->setupUi(this);
+	connect(ui->searchLine, SIGNAL(returnPressed()), this, SLOT(autoCorrection()));
+	//connect(ui->searchLine, SIGNAL(textChanged()), this, SLOT(autoCorrection()));
 	connect(ui->back, SIGNAL(triggered()), this, SLOT(moveToOperations()));
 	connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToFinal()));
 }
@@ -41,6 +40,30 @@ void SearchPage::moveToFinal()
 //		qDebug() << "Word '" << word << "' not found in the paragraph.\n";
 //	}
 //}
+
+
+QString SearchPage::getLastWord(const QString& text) {
+	// Split the text into individual words
+	QStringList words = text.split(QRegularExpression("\\b|\\W"), Qt::SkipEmptyParts);
+
+	// Check if there are any words
+	if (!words.isEmpty()) {
+		// Return the last word
+		return words.last();
+	}
+	else {
+		// Return an empty string if there are no words
+		return QString();
+	}
+}
+
+void SearchPage::autoCorrection()
+{
+	QString text = ui->searchLine->text();
+	string word = GlobalFunctions::autoCorrect(getLastWord(text).toStdString());
+	//ui->searchLine->clear();
+	ui->searchLine->setText(QString::fromStdString(word));
+}
 
 SearchPage::~SearchPage()
 {

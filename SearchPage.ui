@@ -14,13 +14,13 @@
    <string>SearchPage</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>40</x>
       <y>60</y>
       <width>501</width>
-      <height>211</height>
+      <height>326</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -36,7 +36,7 @@ font: 700 12pt &quot;Times New Roman&quot;;</string>
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QLineEdit" name="lineEdit">
+      <widget class="QLineEdit" name="searchLine">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
          <horstretch>0</horstretch>

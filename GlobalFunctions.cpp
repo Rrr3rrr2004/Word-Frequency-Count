@@ -231,7 +231,7 @@ void GlobalFunctions::autoComplete(const QString& word, QStringListModel* wordsM
 	autoCompleter->complete();
 }
 
-int calculateDistance(const QString& word1, const QString& word2) {
+int GlobalFunctions::calculateDistance(const string& word1, const string& word2) {
 	int m = word1.size();
 	int n = word2.size();
 
@@ -256,6 +256,45 @@ int calculateDistance(const QString& word1, const QString& word2) {
 	return dp[m][n];
 }
 
+// Function to perform autocorrection for the search term
+string GlobalFunctions::autoCorrect(const string& searchTerm)
+{
+	//QString dict;
+	//GlobalFunctions::readFile("./Files/dictionary.txt",dict);
+
+	QString text = allTexts.replace("\n", " ").toLower();
+	vector<string> dictionary = stringToVector(text.toStdString());
+	
+	/*for (QString line : dict)
+	{
+		dictionary.push_back(line);
+	}*/
+	//qSort(dictionary);
+	
+	// Threshold for maximum edit distance
+	const int maxEditDistance = 2;
+
+	// Vector to store candidate words
+	vector<pair<int, string>> candidates;
+
+	// Iterate through each word in the word frequencies map
+	for (int i = 0; i < dictionary.size(); i++) {
+		const string& word = dictionary[i]; //editDistance
+		int distance = calculateDistance(searchTerm, word);
+
+		// If the edit distance is within the threshold, add the word to candidates
+		if (distance <= maxEditDistance) {
+			candidates.emplace_back(distance, word); // emplace_back(1, 2) = push_back(obj(1, 2) )
+		}
+	}
+
+	// Sort candidates based on edit distance
+	sort(candidates.begin(), candidates.end());
+
+	// Return the closest word if found, otherwise return the original search term
+	return candidates.empty() ? searchTerm : candidates[0].second;
+}
+
 // Function to load words from a file into a vector
 //QVector<QString> LoadDictionary(const QString& filepath) {
 //	QVector<QString> dictionary;
@@ -273,40 +312,3 @@ int calculateDistance(const QString& word1, const QString& word2) {
 //	qSort(dictionary);
 //	return dictionary;
 //}
-
-// Function to perform autocorrection for the search term
-QString autoCorrect(const QString& searchTerm){
-
-	QString dict;
-	GlobalFunctions::readFile("./Files/dictionary.txt",dict);
-	QVector<QString> dictionary;
-	
-	for (QString line : dict)
-	{
-		dictionary.push_back(line);
-	}
-	//qSort(dictionary);
-	
-	// Threshold for maximum edit distance
-	const int maxEditDistance = 2;
-
-	// Vector to store candidate words
-	QVector<QPair<int, QString>> candidates;
-
-	// Iterate through each word in the word frequencies map
-	for (int i = 0; i < dictionary.length(); i++) {
-		const QString& word = dictionary[i]; //editDistance
-		int distance = calculateDistance(searchTerm, word);
-
-		// If the edit distance is within the threshold, add the word to candidates
-		if (distance <= maxEditDistance) {
-			candidates.emplace_back(distance, word); // emplace_back(1, 2) = push_back(obj(1, 2) )
-		}
-	}
-
-	// Sort candidates based on edit distance
-	sort(candidates.begin(), candidates.end());
-
-	// Return the closest word if found, otherwise return the original search term
-	return candidates.empty() ? searchTerm : candidates[0].second;
-}

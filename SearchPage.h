@@ -1,5 +1,4 @@
 #pragma once
-
 #include <QMainWindow>
 #include "ui_SearchPage.h"
 
@@ -18,6 +17,8 @@ public:
 private slots:
 	void moveToOperations();
 	void moveToFinal();
+	void autoCorrection();
+	QString getLastWord(const QString& text);
 	//void searchWordFrequency(string, map<QString, int>);
 private:
 	Ui::SearchPageClass *ui;
