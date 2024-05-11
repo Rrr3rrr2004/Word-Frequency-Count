@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>604</width>
-    <height>417</height>
+    <width>631</width>
+    <height>499</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -50,7 +50,7 @@ font: 17pt &quot;Stencil&quot;;</string>
       <x>30</x>
       <y>170</y>
       <width>541</width>
-      <height>131</height>
+      <height>258</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -66,11 +66,7 @@ font: 700 12pt &quot;Times New Roman&quot;;</string>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="delText">
-       <property name="clearButtonEnabled">
-        <bool>false</bool>
-       </property>
-      </widget>
+      <widget class="QLineEdit" name="delText"/>
      </item>
      <item>
       <widget class="QPushButton" name="deleteButton">
