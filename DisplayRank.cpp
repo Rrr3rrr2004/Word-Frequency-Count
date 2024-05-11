@@ -40,27 +40,26 @@ void DisplayRank::moveToFinal()
     finalPage->show();
 }
 
-vector<pair<string, int>> DisplayRank::populateWordRanksTable()
-{
+vector<pair<string, int>> DisplayRank::populateWordRanksTable() {
     multimap<int, string, greater<int>> sortedMap = SortDesc::sortWordsDesc();
 
-    //unordered_map<int, int> rankMap;  // Map to store rank for each frequency
     int rank = 1;
-    
-    vector<pair<string, int>> r;
+    int prevFrequency = -1;
+    vector<pair<string, int>> ranks;
+
     for (auto pair : sortedMap) {
-        //int frequency = pair.first;
-        if (!r.empty())
-        {
-            if (pair.first != r[r.size() - 1].second)
-            {
-                r.push_back(make_pair(pair.second, rank++));
-                continue;
-            }
+        int frequency = pair.first;
+        string word = pair.second;
+
+        if (frequency != prevFrequency) {
+            rank = ranks.size() + 1;
         }
-        r.push_back(make_pair(pair.second, rank));
+
+        ranks.push_back(make_pair(word, rank));
+        prevFrequency = frequency;
     }
-    return r;
+
+    return ranks;
 }
 
 DisplayRank::~DisplayRank()
