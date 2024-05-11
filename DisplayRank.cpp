@@ -8,7 +8,7 @@ DisplayRank::DisplayRank(QWidget* parent): QMainWindow(parent), ui(new Ui::Displ
     //populateWordRanksTable();
     
     //multimap<int, std::string> rankedVector = populateWordRanksTable();
-    std::map<std::string, int> rankedVector = populateWordRanksTable();
+    vector<pair<string, int>> rankedVector = populateWordRanksTable();
 
     ui->tableWidget->setRowCount(rankedVector.size());
 
@@ -47,23 +47,54 @@ DisplayRank::~DisplayRank()
     delete ui;
 }
 
-std::map<std::string, int> DisplayRank::populateWordRanksTable()
+vector<pair<string, int>> DisplayRank::populateWordRanksTable()
 {
-    std::multimap<int, std::string, std::greater<int>> sortedMap = SortDesc::sortWordsDesc();
+    multimap<int, string, greater<int>> sortedMap = SortDesc::sortWordsDesc();
 
     //unordered_map<int, int> rankMap;  // Map to store rank for each frequency
     int rank = 1;
-
-    std::map<std::string, int> r;
+    
+    vector<pair<string, int>> r;
     for (auto pair : sortedMap) {
         //int frequency = pair.first;
+        if (!r.empty())
+        {
+            if (pair.first != r[r.size() - 1].second)
+            {
+                r.push_back(make_pair(pair.second, rank++));
+                continue;
+            }
+            /*else
+            {
+                r.push_back(make_pair(pair.second, rank));
+            }*/
+        }
+        r.push_back(make_pair(pair.second, rank));
 
-        r[pair.second] = rank;
-        rank++;
+        /*else
+        {
+            r.push_back(make_pair(pair.second, rank));
+        }*/
     }
     return r;
 }
 
+//std::map<std::string, int> DisplayRank::populateWordRanksTable()
+//{
+//    std::multimap<int, std::string, std::greater<int>> sortedMap = SortDesc::sortWordsDesc();
+//
+//    //unordered_map<int, int> rankMap;  // Map to store rank for each frequency
+//    int rank = 1;
+//
+//    std::map<std::string, int> r;
+//    for (auto pair : sortedMap) {
+//        //int frequency = pair.first;
+//
+//        r[pair.second] = rank;
+//        rank++;
+//    }
+//    return r;
+//}
 
 //std::multimap<int,std::string> DisplayRank::populateWordRanksTable()
 //{

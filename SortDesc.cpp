@@ -1,4 +1,4 @@
-#include "SortDesc.h"
+#include "MainWindow.h"
 
 SortDesc::SortDesc(QWidget* parent)
     : QMainWindow(parent)

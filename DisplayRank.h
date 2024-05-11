@@ -2,7 +2,7 @@
 #include <QMainWindow>
 #include "ui_DisplayRank.h"
 #include <map>
-
+using namespace std;
 QT_BEGIN_NAMESPACE
 namespace Ui { class DisplayRankClass; };
 QT_END_NAMESPACE
@@ -18,7 +18,7 @@ public:
 private slots:
 	void moveToOperations();
 	void moveToFinal();
-	std::map<std::string, int> populateWordRanksTable();
+	vector<pair<string, int>> populateWordRanksTable();
 	//multimap<int, std::string> populateWordRanksTable();
 
 private:
