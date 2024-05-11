@@ -20,7 +20,7 @@
       <x>40</x>
       <y>120</y>
       <width>501</width>
-      <height>151</height>
+      <height>235</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -55,7 +55,11 @@ color: rgb(99, 122, 159);</string>
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="wordFreqLocal"/>
+        <widget class="QTextEdit" name="wordFreqLocal">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -84,7 +88,11 @@ color: rgb(99, 122, 159);</string>
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="wordFreqGlobal"/>
+        <widget class="QTextEdit" name="wordFreqGlobal">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
