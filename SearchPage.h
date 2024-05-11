@@ -18,7 +18,7 @@ public:
 private slots:
 	void moveToOperations();
 	void moveToFinal();
-
+	//void searchWordFrequency(string, map<QString, int>);
 private:
 	Ui::SearchPageClass *ui;
 };

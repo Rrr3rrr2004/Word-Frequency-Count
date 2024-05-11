@@ -20,7 +20,7 @@
 #include "GlobalFunctions.h"
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindowClass; };
+namespace Ui {class MainWindowClass; };
 QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow

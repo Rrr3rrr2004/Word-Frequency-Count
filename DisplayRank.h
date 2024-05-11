@@ -12,13 +12,14 @@ class DisplayRank : public QMainWindow
 	Q_OBJECT
 
 public:
-	DisplayRank(QWidget *parent = nullptr);
+	DisplayRank(QWidget* parent = nullptr);
 	~DisplayRank();
 
 private slots:
 	void moveToOperations();
 	void moveToFinal();
+	void populateWordRanksTable();
 
 private:
-	Ui::DisplayRankClass *ui;
+	Ui::DisplayRankClass* ui;
 };

@@ -32,15 +32,15 @@ void SearchPage::moveToFinal()
 	finalPage->show();
 }
 
-void SearchPage::searchWordFrequency(const QString& word, const QMap<QString, int>& wordFreqMap) {
-	auto it = wordFreqMap.find(word);
-	if (it != wordFreqMap.end()) {
-		qDebug() << "Frequency of '" << word << "': " << it.value() << "\n";
-	}
-	else {
-		qDebug() << "Word '" << word << "' not found in the paragraph.\n";
-	}
-}
+//void SearchPage::searchWordFrequency( QString& word,  QMap<QString, int> wordFreqMap) {
+//	auto it = wordFreqMap.find(word);
+//	if (it != wordFreqMap.end()) {
+//		qDebug() << "Frequency of '" << word << "': " << it.value() << "\n";
+//	}
+//	else {
+//		qDebug() << "Word '" << word << "' not found in the paragraph.\n";
+//	}
+//}
 
 SearchPage::~SearchPage()
 {
