@@ -13,13 +13,13 @@ class SortDesc : public QMainWindow
 
 public:
     SortDesc(QWidget* parent = nullptr);
+    static multimap<int, string, greater<int>> sortWordsDesc();
     ~SortDesc();
 
 private slots:
     void moveToOperations();
     void moveToFinal();
 
-public:
+private:
     Ui::SortDescClass* ui;
-    static multimap<int, string, greater<int>> sortWordsDesc();
 };

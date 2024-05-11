@@ -1,14 +1,25 @@
 #include "MainWindow.h"
-#include <QPixmap> 
-#include <QMessageBox>
-#include "DisplayRank.h"
 
 DisplayRank::DisplayRank(QWidget* parent): QMainWindow(parent), ui(new Ui::DisplayRankClass())
 {
     ui->setupUi(this);
     connect(ui->back, SIGNAL(triggered()), this, SLOT(moveToOperations()));
     connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToFinal()));
-    populateWordRanksTable();
+    //populateWordRanksTable();
+    
+    //multimap<int, std::string> rankedVector = populateWordRanksTable();
+    std::map<std::string, int> rankedVector = populateWordRanksTable();
+
+    ui->tableWidget->setRowCount(rankedVector.size());
+
+    // Populate table
+    int row = 0;
+    for (auto pair : rankedVector)
+    {
+        ui->tableWidget->setItem(row, 0, new QTableWidgetItem(QString::fromStdString(pair.first)));
+        ui->tableWidget->setItem(row, 1, new QTableWidgetItem(QString::number(pair.second)));
+        ++row;
+    }
 }
 
 void DisplayRank::moveToOperations()
@@ -36,35 +47,50 @@ DisplayRank::~DisplayRank()
     delete ui;
 }
 
-void DisplayRank::populateWordRanksTable()
+std::map<std::string, int> DisplayRank::populateWordRanksTable()
 {
-    multimap<int, string, greater<int>> sortedMap = SortDesc::sortWordsDesc();
+    std::multimap<int, std::string, std::greater<int>> sortedMap = SortDesc::sortWordsDesc();
 
-    ui->tableWidget->clear();
-    ui->tableWidget->setRowCount(sortedMap.size());
-
-    unordered_map<int, int> rankMap;  
+    //unordered_map<int, int> rankMap;  // Map to store rank for each frequency
     int rank = 1;
-    int row = 0;
 
-    for (const auto& pair : sortedMap) {
-        QTableWidgetItem* wordItem = new QTableWidgetItem(QString::fromStdString(pair.second));
-        int frequency = pair.first;
+    std::map<std::string, int> r;
+    for (auto pair : sortedMap) {
+        //int frequency = pair.first;
 
-        if (rankMap.find(frequency) == rankMap.end()) {
-            rankMap[frequency] = rank++;
-        }
-
-        QTableWidgetItem* rankItem = new QTableWidgetItem(QString::number(rankMap[frequency]));
-
-        ui->tableWidget->setItem(row, 0, wordItem);
-        ui->tableWidget->setItem(row, 1, rankItem);
-
-        ++row;
+        r[pair.second] = rank;
+        rank++;
     }
+    return r;
 }
 
 
+//std::multimap<int,std::string> DisplayRank::populateWordRanksTable()
+//{
+//    std::multimap<int, std::string> rankedWords;
+// 
+//    std::multimap<int, std::string, std::greater<int>> sortedMap = SortDesc::sortWordsDesc();
+//    int rank = 0;
+//    for (auto word: sortedMap)
+//    {
+//        int frequency = word.first;
+//
+//        if (rankedWords.end()->first!=frequency) {
+//            rank++;
+//        }
+//        rankedWords.insert({ word.first, word.second });
+//    }
+//    return rankedWords;
+//}
 
-
-
+//void DisplayRank::displayWordRanks()
+//{
+//    // Displaying word ranks via QMessageBox
+//    multimap<int, string, greater<int>> sortedMap = SortDesc::sortWordsDesc();
+//    QString output = "Word ranks based on frequency:\n";
+//    int rank = 1;
+//    for (const auto& pair : sortedMap) {
+//        output += QString::fromStdString(pair.second) + "\t" + QString::number(rank++) + "\n";
+//    }
+//    QMessageBox::information(this, "Word Ranks", output);
+//}

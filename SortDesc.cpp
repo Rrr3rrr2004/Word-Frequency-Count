@@ -44,7 +44,7 @@ void SortDesc::moveToFinal()
 
 std::multimap<int, std::string, std::greater<int>> SortDesc::sortWordsDesc() 
 {
-    static std::multimap<int, std::string, std::greater<int>> sortedMap;
+    std::multimap<int, std::string, std::greater<int>> sortedMap;
     for (auto i : GlobalFunctions::localFrequencies)
     {
         sortedMap.insert({ i.second, i.first });

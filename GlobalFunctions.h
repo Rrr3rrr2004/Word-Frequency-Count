@@ -47,8 +47,8 @@ public:
     static int deleteFromText(const QString& text, bool& flag);
     static void autoComplete(const QString& word, QStringListModel* wordsModel, QCompleter* autoCompleter);
 
-    int calculateDistance(const QString& word1, const QString& word2);
+    /*int calculateDistance(const QString& word1, const QString& word2);
     static QVector<QString> LoadDictionary(const QString& filepath);
-    static QString autoCorrect(const QString& searchTerm, const QVector<QString> Dictionary);
+    static QString autoCorrect(const QString& searchTerm, const QVector<QString> Dictionary);*/
 
 };
