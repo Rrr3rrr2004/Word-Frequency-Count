@@ -23,11 +23,14 @@ private slots:
 	void moveToOperations();
 	void moveToFinal();
 	void autoCompletion();
+	void autoCorrection();
 	void updateText();
 
 
 private:
 	QCompleter* completer;
 	QStringListModel* historyModel;
+	QString textCorrection;
+
 	Ui::UpdatePageClass *ui;
 };

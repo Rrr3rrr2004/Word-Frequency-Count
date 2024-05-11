@@ -28,7 +28,7 @@ private:
 	QCompleter* comp;
 	QStringListModel* hisModel;
 	QString delCorrection;
-	QString delCompletion;
+	//QString delCompletion;
 
 	//void on_plainTextEdit_textChanged();
 	//std::set<std::string> findWordsStartingWith(const std::string& subword, const std::set<std::string>& text);

@@ -58,7 +58,7 @@ vector<pair<string, int>> DisplayRank::populateWordRanksTable()
                 continue;
             }
         }
-        r.push_back(make_pair(pair.second, rank));
+        r.push_back(make_pair(pair.second, rank++));
     }
     return r;
 }
