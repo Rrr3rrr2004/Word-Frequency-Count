@@ -18,6 +18,8 @@ public:
 private slots:
 	void moveToOperations();
 	void quitProgram();
+	void moveToMain();
+
 private:
 	Ui::FinalPageClass *ui;
 };

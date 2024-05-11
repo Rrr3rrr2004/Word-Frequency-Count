@@ -11,6 +11,15 @@ FinalPage::FinalPage(QWidget *parent)
 	ui->logo->setPixmap(logo.scaled(75, 75, Qt::KeepAspectRatio));
 	connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToOperations()));
 	connect(ui->quit, SIGNAL(clicked()), this, SLOT(quitProgram()));
+	connect(ui->main, SIGNAL(clicked()), this, SLOT(moveToMain()));
+
+}
+
+void FinalPage::moveToMain()
+{
+	hide();
+	MainWindow* mainWindow = new MainWindow();
+	mainWindow->show();
 
 }
 

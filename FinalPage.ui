@@ -63,7 +63,7 @@ color: rgb(232, 200, 114)
       <x>40</x>
       <y>200</y>
       <width>511</width>
-      <height>101</height>
+      <height>121</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -109,6 +109,17 @@ font: 700 10pt &quot;Times New Roman&quot;;</string>
        </property>
        <property name="text">
         <string>Close the program</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="main">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 243, 207);
+font: 700 10pt &quot;Times New Roman&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Return to the main window</string>
        </property>
       </widget>
      </item>

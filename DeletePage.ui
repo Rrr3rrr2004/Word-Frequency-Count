@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>604</width>
-    <height>502</height>
+    <height>417</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -50,7 +50,7 @@ font: 17pt &quot;Stencil&quot;;</string>
       <x>30</x>
       <y>170</y>
       <width>541</width>
-      <height>241</height>
+      <height>131</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
