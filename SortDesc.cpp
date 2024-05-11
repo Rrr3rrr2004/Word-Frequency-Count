@@ -6,10 +6,10 @@ SortDesc::SortDesc(QWidget* parent)
 {
     ui->setupUi(this);
 
-    connect(ui->next, SIGNAL(triggered()), this, SLOT(moveToFinal()));
+    connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToFinal()));
     connect(ui->back, SIGNAL(triggered()), this, SLOT(moveToOperations()));
 
-    std::multimap<int, std::string, std::greater<int>> sortedMap = sortWordsDesc();
+    multimap<int, string, greater<int>> sortedMap = sortWordsDesc();
     ui->sortDescTable->setRowCount(sortedMap.size());
 
     // Populate table
@@ -42,9 +42,9 @@ void SortDesc::moveToFinal()
     finalPage->show();
 }
 
-std::multimap<int, std::string, std::greater<int>> SortDesc::sortWordsDesc() 
+multimap<int, string, greater<int>> SortDesc::sortWordsDesc() 
 {
-    std::multimap<int, std::string, std::greater<int>> sortedMap;
+    multimap<int, string, greater<int>> sortedMap;
     for (auto i : GlobalFunctions::localFrequencies)
     {
         sortedMap.insert({ i.second, i.first });

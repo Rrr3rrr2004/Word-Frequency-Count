@@ -6,7 +6,7 @@ SortAsc::SortAsc(QWidget *parent)
 {
 	ui->setupUi(this);
 
-	connect(ui->next, SIGNAL(triggered()), this, SLOT(moveToFinal()));
+	connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToFinal()));
 	connect(ui->back, SIGNAL(triggered()), this, SLOT(moveToOperations()));
 
 	multimap<int, string> sortedMap = sortWordsAsc();

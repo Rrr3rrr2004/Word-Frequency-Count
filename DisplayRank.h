@@ -19,7 +19,6 @@ private slots:
 	void moveToOperations();
 	void moveToFinal();
 	vector<pair<string, int>> populateWordRanksTable();
-	//multimap<int, std::string> populateWordRanksTable();
 
 private:
 	Ui::DisplayRankClass* ui;
