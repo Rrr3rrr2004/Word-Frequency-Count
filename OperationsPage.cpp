@@ -17,7 +17,6 @@ OperationsPage::OperationsPage(QWidget *parent)
 	connect(ui->displayFreq, SIGNAL(clicked()), this, SLOT(moveToDisplayFreq()));
 
 	connect(ui->update, SIGNAL(clicked()), this, SLOT(moveToUpdate()));
-
 	connect(ui->delete_2, SIGNAL(clicked()), this, SLOT(moveToDelete()));
 	connect(ui->sortAsc, SIGNAL(clicked()), this, SLOT(moveToAsc()));
 	connect(ui->sortDesc, SIGNAL(clicked()), this, SLOT(moveToDesc()));
