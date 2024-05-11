@@ -20,7 +20,7 @@ void UploadFile::upload()
 	if (!GlobalFunctions::filePath.isEmpty())
 	{
 		QMessageBox::information(this, "Congratulation", "Your File Uploaded Successfully");
-		GlobalFunctions::readFile();
+		GlobalFunctions::readFile(GlobalFunctions::filePath, GlobalFunctions::QParagraph);
 	}
 }
 

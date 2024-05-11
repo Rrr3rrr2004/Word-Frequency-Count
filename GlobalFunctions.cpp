@@ -1,9 +1,7 @@
 #include "GlobalFunctions.h"
 #include "ui_FinalPage.h"
 
-
 QString GlobalFunctions::QParagraph;
-//string GlobalFunctions::paragraph;
 QString GlobalFunctions::allTexts;
 QString GlobalFunctions::filePath;
 unordered_map<string, int> GlobalFunctions::localFrequencies;
@@ -24,21 +22,14 @@ void GlobalFunctions::writeToFile()
 	}
 }
 
-void GlobalFunctions::readFile()
+void GlobalFunctions::readFile(const QString& path, QString& text)
 {
-	QFile file(filePath);
+	QFile file(path);
 
 	if (file.open(QIODevice::ReadOnly | QIODevice::Text))
 	{
 		QTextStream in(&file);
-
-		QParagraph = in.readAll();
-		// store the Paragraph that in the file in paragraph after convert it to string
-		/*QString fileContentEdited = QParagraph;
-		fileContentEdited.replace("\n", " ");
-		fileContentEdited = fileContentEdited.toLower();
-		paragraph = fileContentEdited.toStdString();*/
-
+		text = in.readAll();
 		file.close();
 	}
 }
@@ -239,72 +230,83 @@ void GlobalFunctions::autoComplete(const QString& word, QStringListModel* wordsM
 	//completer->setCompletionPrefix(ui->newLine->text());
 	autoCompleter->complete();
 }
-//int calculateDistance(const QString& word1, const QString& word2) {
-//	int m = word1.size();
-//	int n = word2.size();
-//
-//	QVector<QVector<int>> dp(m + 1, QVector<int>(n + 1, 0));
-//
-//	for (int i = 0; i <= m; ++i) {
-//		for (int j = 0; j <= n; ++j) {
-//			if (i == 0) {
-//				dp[i][j] = j;
-//			}
-//			else if (j == 0) {
-//				dp[i][j] = i;
-//			}
-//			else if (word1[i - 1] == word2[j - 1]) {
-//				dp[i][j] = dp[i - 1][j - 1];
-//			}
-//			else {
-//				dp[i][j] = 1 + qMin(dp[i - 1][j], dp[i][j - 1]);
-//			}
-//		}
-//
-//	}
-//	return dp[m][n];
-//}
+
+int calculateDistance(const QString& word1, const QString& word2) {
+	int m = word1.size();
+	int n = word2.size();
+
+	QVector<QVector<int>> dp(m + 1, QVector<int>(n + 1, 0));
+
+	for (int i = 0; i <= m; ++i) {
+		for (int j = 0; j <= n; ++j) {
+			if (i == 0) {
+				dp[i][j] = j;
+			}
+			else if (j == 0) {
+				dp[i][j] = i;
+			}
+			else if (word1[i - 1] == word2[j - 1]) {
+				dp[i][j] = dp[i - 1][j - 1];
+			}
+			else {
+				dp[i][j] = 1 + qMin(dp[i - 1][j], dp[i][j - 1]);
+			}
+		}
+	}
+	return dp[m][n];
+}
 
 // Function to load words from a file into a vector
 //QVector<QString> LoadDictionary(const QString& filepath) {
-	//QVector<QString> dictionary;
-	//QFile file(filepath);
-	//if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-		//qWarning() << "Failed to open file:" << filepath;
-		//return dictionary; // Return empty dictionary if file cannot be opened
-	//}
-	//QTextStream in(&file);
-	//while (!in.atEnd()) {
-		//QString line = in.readLine();
-		//dictionary.append(line);
-	//}
-	//file.close();
-	//qSort(dictionary);
-	//return dictionary;
+//	QVector<QString> dictionary;
+//	QFile file(filepath);
+//	if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+//		qWarning() << "Failed to open file:" << filepath;
+//		return dictionary; // Return empty dictionary if file cannot be opened
+//	}
+//	QTextStream in(&file);
+//	while (!in.atEnd()) {
+//		QString line = in.readLine();
+//		dictionary.append(line);
+//	}
+//	file.close();
+//	qSort(dictionary);
+//	return dictionary;
 //}
 
 // Function to perform autocorrection for the search term
-//QString autoCorrect(const QString& searchTerm, const QVector<QString> Dictionary){
-//	// Threshold for maximum edit distance
-//	const int maxEditDistance = 2;
-//
-//	// Vector to store candidate words
-//	QVector<QPair<int, QString>> candidates;
-//
-//	// Iterate through each word in the word frequencies map
-//	for (int i = 0; i < Dictionary.length(); i++) {
-//		const QString& word = Dictionary[i]; //editDistance
-//		int distance = calculateDistance(searchTerm, word);
-//
-//		// If the edit distance is within the threshold, add the word to candidates
-//		if (distance <= maxEditDistance) {
-//			candidates.emplace_back(distance, word); // emplace_back(1, 2) = push_back(obj(1, 2) )
-//		}
-//	}
-//
-//	// Sort candidates based on edit distance
-//	sort(candidates.begin(), candidates.end());
-//
-//	// Return the closest word if found, otherwise return the original search term
-//	return candidates.empty() ? searchTerm : candidates[0].second;
-//}
+QString autoCorrect(const QString& searchTerm){
+
+	QString dict;
+	GlobalFunctions::readFile("./Files/dictionary.txt",dict);
+	QVector<QString> dictionary;
+	
+	for (QString line : dict)
+	{
+		dictionary.push_back(line);
+	}
+	//qSort(dictionary);
+	
+	// Threshold for maximum edit distance
+	const int maxEditDistance = 2;
+
+	// Vector to store candidate words
+	QVector<QPair<int, QString>> candidates;
+
+	// Iterate through each word in the word frequencies map
+	for (int i = 0; i < dictionary.length(); i++) {
+		const QString& word = dictionary[i]; //editDistance
+		int distance = calculateDistance(searchTerm, word);
+
+		// If the edit distance is within the threshold, add the word to candidates
+		if (distance <= maxEditDistance) {
+			candidates.emplace_back(distance, word); // emplace_back(1, 2) = push_back(obj(1, 2) )
+		}
+	}
+
+	// Sort candidates based on edit distance
+	sort(candidates.begin(), candidates.end());
+
+	// Return the closest word if found, otherwise return the original search term
+	return candidates.empty() ? searchTerm : candidates[0].second;
+}
