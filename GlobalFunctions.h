@@ -8,6 +8,7 @@
 #include <QString>
 #include <map>
 #include <vector>
+#include <QVector>
 #include <QTableWidget>
 #include <QTableWidgetItem>
 #include <QCoreApplication>
@@ -17,7 +18,8 @@
 #include <QMessageBox>
 #include <QStringListModel>
 #include <QCompleter>
-#include <QAlgorithm>
+#include <algorithm>
+#include <QPair>
 
 using namespace std;
 
@@ -47,6 +49,6 @@ public:
 
     int calculateDistance(const QString& word1, const QString& word2);
     static QVector<QString> LoadDictionary(const QString& filepath);
-    static string autocorrect(const string& searchTerm, const QVector<QString> Dictionary);
+    static QString autoCorrect(const QString& searchTerm, const QVector<QString> Dictionary);
 
 };

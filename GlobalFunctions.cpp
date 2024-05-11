@@ -257,7 +257,7 @@ int calculateDistance(const QString& word1, const QString& word2) {
 				dp[i][j] = dp[i - 1][j - 1];
 			}
 			else {
-				dp[i][j] = 1 + qMin({ dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1] });
+				dp[i][j] = 1 + qMin(dp[i - 1][j], dp[i][j - 1]);
 			}
 		}
 
@@ -284,16 +284,16 @@ int calculateDistance(const QString& word1, const QString& word2) {
 //}
 
 // Function to perform autocorrection for the search term
-string autocorrect(const string& searchTerm, const QVector<QString> Dictionary){
+QString autoCorrect(const QString& searchTerm, const QVector<QString> Dictionary){
 	// Threshold for maximum edit distance
 	const int maxEditDistance = 2;
 
 	// Vector to store candidate words
-	vector<pair<int, string>> candidates;
+	QVector<QPair<int, QString>> candidates;
 
 	// Iterate through each word in the word frequencies map
-	for (auto it = Dictionary.begin(); it != Dictionary.end(); ++it) {
-		const string& word = it->first; //editDistance
+	for (int i = 0; i < Dictionary.length(); i++) {
+		const QString& word = Dictionary[i]; //editDistance
 		int distance = calculateDistance(searchTerm, word);
 
 		// If the edit distance is within the threshold, add the word to candidates
