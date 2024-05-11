@@ -4,6 +4,7 @@
 #include <QStringListModel>
 #include <QCompleter>
 #include <set>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class DeletePageClass; };
 QT_END_NAMESPACE
@@ -22,7 +23,7 @@ private slots:
 	void deleteText();
 	void deleteAllText();
 	void autoCompletion();
-	void autoCorrection();
+	void delAutoCorrection();
 
 private:
 	QCompleter* comp;

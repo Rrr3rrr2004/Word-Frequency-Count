@@ -19,12 +19,12 @@ UpdatePage::UpdatePage(QWidget* parent)
 	ui->newLine->setCompleter(completer);
 
 	connect(ui->oldLine, SIGNAL(textChanged(QString)), this, SLOT(autoCompletion()));
-	connect(ui->oldLine, SIGNAL(returnPressed()), this, SLOT(autoCorrection()));
-
-	connect(ui->newLine, SIGNAL(returnPressed()), this, SLOT(autoCorrection()));
-
-
 	//connect(ui->newLine, SIGNAL(textChanged(QString)), this, SLOT(autoComplete()));
+
+	connect(ui->oldLine, SIGNAL(returnPressed()), this, SLOT(oldAutoCorrection()));
+	connect(ui->newLine, SIGNAL(returnPressed()), this, SLOT(newAutoCorrection()));
+
+
 	connect(ui->updateButton, SIGNAL(clicked()), this, SLOT(updateText()));
 	connect(ui->back, SIGNAL(triggered()), this, SLOT(moveToOperations()));
 	connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToFinal()));
@@ -52,28 +52,21 @@ void UpdatePage::moveToFinal()
 	finalPage->show();
 }
 
+
 void UpdatePage::autoCompletion()
 {
 	GlobalFunctions::autoComplete(ui->oldLine->text(), historyModel, completer);
 }
 
-void UpdatePage::autoCorrection()
+void UpdatePage::oldAutoCorrection()
 {
-	textCorrection = ui->oldLine->text();
-	QString lastWord = GlobalFunctions::getLastWord(textCorrection);
-	string wordCorrection = GlobalFunctions::autoCorrect(lastWord.toStdString());
-	if (lastWord.toStdString() != wordCorrection)
-	{
-		for (int i = 0; i < lastWord.length(); i++)
-		{
-			textCorrection.removeLast();
-		}
-		textCorrection += wordCorrection + " ";
-	}
-	ui->oldLine->clear();
-	ui->oldLine->setText(textCorrection);
+	GlobalFunctions::autoCorrection(ui->oldLine,textCorrection);
 }
 
+void UpdatePage::newAutoCorrection()
+{
+	GlobalFunctions::autoCorrection(ui->newLine,textCorrection);
+}
 
 void UpdatePage::updateText()
 {

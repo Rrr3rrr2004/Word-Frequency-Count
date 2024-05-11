@@ -4,6 +4,7 @@
 #include <QStringListModel>
 #include <QCompleter>
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class UpdatePageClass; };
 QT_END_NAMESPACE
@@ -23,7 +24,11 @@ private slots:
 	void moveToOperations();
 	void moveToFinal();
 	void autoCompletion();
-	void autoCorrection();
+
+
+	void oldAutoCorrection();
+	void newAutoCorrection();
+
 	void updateText();
 
 

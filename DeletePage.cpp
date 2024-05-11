@@ -19,7 +19,7 @@ DeletePage::DeletePage(QWidget *parent)
 	ui->delText->setCompleter(comp);
 
 	connect(ui->delText, SIGNAL(textChanged(QString)), this, SLOT(autoCompletion()));
-	connect(ui->delText, SIGNAL(returnPressed()), this, SLOT(autoCorrection()));
+	connect(ui->delText, SIGNAL(returnPressed()), this, SLOT(delAutoCorrection()));
 
 	connect(ui->deleteButton, SIGNAL(clicked()), this, SLOT(deleteText()));
 	connect(ui->delete_allButton, SIGNAL(clicked()), this, SLOT(deleteAllText()));
@@ -164,21 +164,9 @@ void DeletePage::autoCompletion()
 	}
 }*/
 
-void DeletePage::autoCorrection()
+void DeletePage::delAutoCorrection()
 {
-	delCorrection = ui->delText->text();
-	QString lastWord = GlobalFunctions::getLastWord(delCorrection);
-	string wordCorrection = GlobalFunctions::autoCorrect(lastWord.toStdString());
-	if (lastWord.toStdString()!= wordCorrection)
-	{
-		for (int i = 0; i < lastWord.length(); i++)
-		{
-			delCorrection.removeLast();
-		}
-		delCorrection += wordCorrection + " ";
-	}
-	ui->delText->clear();
-	ui->delText->setText(delCorrection);
+	GlobalFunctions::autoCorrection(ui->delText, delCorrection);
 }
 
 DeletePage::~DeletePage()

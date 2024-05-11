@@ -295,6 +295,23 @@ string GlobalFunctions::autoCorrect(const string& searchTerm)
 	return candidates.empty() ? searchTerm : candidates[0].second;
 }
 
+void GlobalFunctions::autoCorrection(QLineEdit* lineEdit, QString& text)
+{
+	text = lineEdit->text();
+	QString lastWord = GlobalFunctions::getLastWord(text);
+	string wordCorrection = GlobalFunctions::autoCorrect(lastWord.toStdString());
+	if (lastWord.toStdString() != wordCorrection)
+	{
+		for (int i = 0; i < lastWord.length(); i++)
+		{
+			text.removeLast();
+		}
+		text += wordCorrection + " ";
+	}
+	lineEdit->clear();
+	lineEdit->setText(text);
+}
+
 QString GlobalFunctions::getLastWord(const QString& text) {
 	// Split the text into individual words
 	QStringList words = text.split(QRegularExpression("\\b|\\W"), Qt::SkipEmptyParts);
