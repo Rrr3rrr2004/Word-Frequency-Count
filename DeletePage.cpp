@@ -63,12 +63,10 @@ void DeletePage::deleteText()
 	if (!flag)
 	{
 		QMessageBox::information(this, "Warning!!", ui->delText->text() + "\nIS NOT VALID IN YOUR TEXT!!\nPlease, Enter another Sentance.");
+		return;
 	}
-	else
-	{
 		QMessageBox::information(this, "Congratulation", "The Sentance Is Deleted.");
 		ui->display->setPlainText(GlobalFunctions::QParagraph);
-	}
 }
 
 void DeletePage::deleteAllText()

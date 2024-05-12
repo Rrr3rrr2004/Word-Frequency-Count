@@ -99,6 +99,7 @@ void UpdatePage::updateText()
 	string finalPara = GlobalFunctions::vectorToString(paraVector);
 	GlobalFunctions::QParagraph = QString::fromStdString(finalPara);
 	QMessageBox::information(this, "Congratulation", "The Sentance Is Updated.");
+	ui->textEdit->setPlainText(GlobalFunctions::QParagraph);
 }
 
 UpdatePage::~UpdatePage()
