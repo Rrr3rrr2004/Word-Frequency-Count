@@ -186,13 +186,8 @@ int GlobalFunctions::deleteFromText(const QString& text, bool& flag)
 		}
 	}
 
-	//if (!flag)
-	//{
-		//QMessageBox::information(this, "Warning!!", QString::fromStdString(sDelText) + "\nIS NOT VALID IN YOUR TEXT!!\nPlease, Enter another Sentance");
-	//}
 	if (flag)
 	{
-		//QMessageBox::information(this, "Congratulation", "The Sentance Is Updated");
 		for (int i = 0; i < delVector.size(); i++)
 		{
 			paraVector.erase(paraVector.begin() + index);

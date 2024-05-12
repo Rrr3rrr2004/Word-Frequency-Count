@@ -38,6 +38,7 @@ private slots:
 	void moveToDisplayFreq();
 	void moveToDisplayRank();
 	void moveToSearch();
+	void quitProgram();
 
 private:
 	DisplayTextPage* displayPage;

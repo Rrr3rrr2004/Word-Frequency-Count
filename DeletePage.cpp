@@ -53,6 +53,11 @@ void DeletePage::moveToFinal()
 //Delete functions
 void DeletePage::deleteText()
 {
+	if (ui->delText->text().isEmpty())
+	{
+		QMessageBox::warning(this, "Warning!!","There is no text provided to delete!");
+		return;
+	}
 	bool flag = 0;
 	GlobalFunctions::deleteFromText(ui->delText->text(),flag);
 	if (!flag)
@@ -82,88 +87,6 @@ void DeletePage::autoCompletion()
 	//delString += wordCorrection + " ";
 	GlobalFunctions::autoComplete(ui->delText->text(), hisModel, comp);
 }
-
-
-//void DeletePage::on_plainTextEdit_textChanged()
-//{
-//	QString paragraphText = ui->delText->toPlainText();
-//	QString p = GlobalFunctions::QParagraph.toLower();
-//
-//	// Define a regular expression pattern to match punctuation marks
-//	QRegularExpression pattern("\\b|\\W");
-//	QStringList history = p.split(pattern, Qt::SkipEmptyParts);
-//	set<string> data;
-//	for (QString word : history) {
-//		data.insert(word.toStdString());
-//	}
-//	
-//	// from plainText
-//	QStringList wordsList = paragraphText.split(pattern, Qt::SkipEmptyParts);
-//
-//	set<string> filteredList;
-//	QString x;
-//	for (auto word : wordsList)
-//	{
-//		filteredList = findWordsStartingWith(word.toStdString(), data);
-//		QStringList list;
-//		for (string x : filteredList) {
-//			list.append(QString::fromStdString(x));
-//		}
-//		hisModel = new QStringListModel(this);
-//		hisModel->setStringList(list);
-//		//ui->listView->setModel(hisModel);
-//	}
-//}
-
-//std::set<std::string> DeletePage::findWordsStartingWith(const std::string& subword, const std::set<string>& text) {
-//	std::set<std::string> wordsStartingWithSubword;
-//
-//	// Iterate through each word in the text
-//	//std::string word;
-//	for (string word: text) {
-//		// Check if the word starts with the subword
-//		if (word.substr(0, subword.size()) == subword) {
-//			wordsStartingWithSubword.insert(word);
-//		}
-//	}
-//
-//	// Check the last word in case it's not followed by non-alphanumeric characters
-//	//if (!word.empty() && word.substr(0, subword.size()) == subword) {
-//		//wordsStartingWithSubword.insert(word);
-//	//}
-//
-//	return wordsStartingWithSubword;
-//}
-
-/*void DeletePage::on_plainTextEdit_textChanged()
-{
-	set<string>data;
-	set<string> filteredList;
-	AutoC x;
-			delText
-	QString paragraphText = ui->plainTextEdit->toPlainText();
-			QParagraph
-	QString allParagraph = Files::readAllParagraphs();
-	
-	QStringList allParagraphList = paragraph.SplitParagrah(allParagraph);
-
-	for (QString word : allParagraphList) {
-		data.insert(word.toStdString());
-	}
-	QStringList fa = paragraph.SplitParagrah(paragraphText);
-
-	for (auto word : fa)
-	{
-		x.autoComplete(word.toStdString(), filteredList, data);
-		QStringList list;
-		for (string x : filteredList) {
-			list.append(QString::fromStdString(x));
-		}
-		modelplan = new QStringListModel(this);
-		modelplan->setStringList(list);
-		ui->listView_2->setModel(modelplan);
-	}
-}*/
 
 void DeletePage::delAutoCorrection()
 {

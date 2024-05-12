@@ -188,7 +188,7 @@ color: rgb(255, 255, 255);</string>
   <action name="close">
    <property name="icon">
     <iconset>
-     <normaloff>../../../../Design/atock/icons/close.png</normaloff>../../../../Design/atock/icons/close.png</iconset>
+     <normaloff>icons/close.png</normaloff>icons/close.png</iconset>
    </property>
    <property name="text">
     <string>close</string>

@@ -271,8 +271,6 @@ color: rgb(255, 255, 255);</string>
      </widget>
     </item>
    </layout>
-   <zorder>frame</zorder>
-   <zorder>verticalLayoutWidget</zorder>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -281,8 +279,21 @@ color: rgb(255, 255, 255);</string>
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="close"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="close">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/close.png</normaloff>icons/close.png</iconset>
+   </property>
+   <property name="text">
+    <string>close</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::TextHeuristicRole</enum>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
