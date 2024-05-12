@@ -44,9 +44,9 @@ void UpdatePage::moveToOperations()
 
 void UpdatePage::moveToFinal()
 {
-	GlobalFunctions::writeToFile();
-	GlobalFunctions::writeToFile();
 	GlobalFunctions::allTexts.clear();
+	GlobalFunctions::writeToFile();
+	GlobalFunctions::readAllTexts();
 	hide();
 	FinalPage* finalPage = new FinalPage();
 	finalPage->show();
@@ -93,6 +93,7 @@ void UpdatePage::updateText()
 		string finalPara = GlobalFunctions::vectorToString(paraVector);
 		GlobalFunctions::QParagraph = QString::fromStdString(finalPara);
 		QMessageBox::information(this, "Congratulation", "The Sentance Is Updated.");
+		ui->textEdit->setPlainText(GlobalFunctions::QParagraph);
 	}
 }
 
