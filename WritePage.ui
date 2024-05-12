@@ -6,97 +6,138 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>673</width>
+    <height>425</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>WritePage</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(252, 255, 224);</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>321</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 700 12pt &quot;Times New Roman&quot;;
-color: rgb(99, 122, 159);</string>
-    </property>
-    <property name="text">
-     <string>Enter you paragraph:</string>
-    </property>
-   </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>50</y>
-      <width>580</width>
-      <height>290</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QTextEdit" name="writeText"/>
-     </item>
-     <item>
-      <widget class="QPushButton" name="saveFile">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 243, 207);
-font: 700 10pt &quot;Times New Roman&quot;;</string>
-       </property>
-       <property name="text">
-        <string>save in file</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="next">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 243, 207);
-font: 700 10pt &quot;Times New Roman&quot;;</string>
-       </property>
-       <property name="text">
-        <string>next</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="back">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 243, 207);
-font: 700 10pt &quot;Times New Roman&quot;;</string>
-       </property>
-       <property name="text">
-        <string>back and cancel</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
+   <layout class="QGridLayout" name="gridLayout_4">
+    <item row="0" column="0">
+     <widget class="QFrame" name="frame_2">
+      <property name="frameShape">
+       <enum>QFrame::Shape::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QFrame" name="frame">
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label">
+            <property name="styleSheet">
+             <string notr="true">font: 700 15pt &quot;Times New Roman&quot;;
+color: rgb(73, 57, 44);</string>
+            </property>
+            <property name="text">
+             <string>Enter you paragraph:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QTextEdit" name="writeText">
+            <property name="styleSheet">
+             <string notr="true">font: 700 12pt &quot;Times New Roman&quot;;
+color: rgb(99, 122, 159);
+background-color: rgb(255, 255, 255);</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QFrame" name="frame_3">
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="0">
+           <widget class="QPushButton" name="saveFile">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 700 15pt &quot;Traditional Arabic&quot;;
+background-color: rgb(99, 122, 159);
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>save in file</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QPushButton" name="next">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 700 15pt &quot;Traditional Arabic&quot;;
+background-color: rgb(99, 122, 159);
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>next</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QPushButton" name="back">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 700 15pt &quot;Traditional Arabic&quot;;
+background-color: rgb(99, 122, 159);
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>back and cancel</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">

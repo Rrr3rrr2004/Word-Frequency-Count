@@ -6,127 +6,174 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>581</width>
-    <height>387</height>
+    <width>643</width>
+    <height>418</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>HomePage</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">background-color: rgb(252, 255, 224);</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>175</y>
-      <width>481</width>
-      <height>121</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QPushButton" name="write">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 243, 207);
-font: 700 10pt &quot;Times New Roman&quot;;</string>
-       </property>
-       <property name="text">
-        <string>Write a paragraph</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="upload">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 243, 207);
-font: 700 10pt &quot;Times New Roman&quot;;</string>
-       </property>
-       <property name="text">
-        <string>Upload a paragraph</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="back">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 243, 207);
-font: 700 10pt &quot;Times New Roman&quot;;</string>
-       </property>
-       <property name="text">
-        <string>back</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QLabel" name="title">
-    <property name="geometry">
-     <rect>
-      <x>210</x>
-      <y>60</y>
-      <width>221</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(99, 122, 159);
-font: 30pt &quot;Stencil&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Home page</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="subtitle">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>140</y>
-      <width>231</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(232, 200, 114);
-font: 700 12pt &quot;Times New Roman&quot;;</string>
-    </property>
-    <property name="text">
-     <string>choose your preffered method:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="logo">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>60</y>
-      <width>71</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="0" column="0">
+     <widget class="QFrame" name="frame">
+      <property name="frameShape">
+       <enum>QFrame::Shape::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_4">
+       <item row="0" column="0">
+        <widget class="QFrame" name="frame_2">
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="1">
+           <widget class="QLabel" name="logo">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="title">
+            <property name="styleSheet">
+             <string notr="true">font: 30pt &quot;Stencil&quot;;
+color: rgb(73, 57, 44);
+</string>
+            </property>
+            <property name="text">
+             <string>Home page</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="3">
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QFrame" name="frame_3">
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="subtitle">
+            <property name="styleSheet">
+             <string notr="true">font: 700 15pt &quot;Times New Roman&quot;;
+color: rgb(99, 122, 159);</string>
+            </property>
+            <property name="text">
+             <string>choose your preffered method:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QPushButton" name="write">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 700 15pt &quot;Traditional Arabic&quot;;
+background-color: rgb(99, 122, 159);
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>Write a paragraph</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QPushButton" name="upload">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 700 15pt &quot;Traditional Arabic&quot;;
+background-color: rgb(99, 122, 159);
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>Upload a paragraph</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QPushButton" name="back">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 700 15pt &quot;Traditional Arabic&quot;;
+background-color: rgb(99, 122, 159);
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>back</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">

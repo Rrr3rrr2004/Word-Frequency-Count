@@ -6,78 +6,96 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>601</width>
-    <height>417</height>
+    <width>445</width>
+    <height>476</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>DisplayFrequency</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(252, 255, 224);</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>10</y>
-      <width>271</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(232, 200, 114);
-font: 700 12pt &quot;Times New Roman&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Word Frequencies:</string>
-    </property>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>60</y>
-      <width>501</width>
-      <height>261</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QTableWidget" name="tableFreq">
-       <property name="styleSheet">
-        <string notr="true">color: rgb(99, 122, 159);
-font: 700 10pt &quot;Traditional Arabic&quot;;
-alternate-background-color: rgb(201, 215, 221);</string>
-       </property>
-       <column>
-        <property name="text">
-         <string>Word</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Local Frequency</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Global Frequency</string>
-        </property>
-       </column>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="next">
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 243, 207);
-font: 700 10pt &quot;Times New Roman&quot;;</string>
-       </property>
-       <property name="text">
-        <string>Next</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <widget class="QFrame" name="frame">
+      <property name="frameShape">
+       <enum>QFrame::Shape::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="styleSheet">
+          <string notr="true">font: 700 15pt &quot;Times New Roman&quot;;
+color: rgb(73, 57, 44);</string>
+         </property>
+         <property name="text">
+          <string>Word Frequencies:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QPushButton" name="next">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 700 15pt &quot;Traditional Arabic&quot;;
+background-color: rgb(99, 122, 159);
+color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>Next</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QFrame" name="frame_2">
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="0">
+           <widget class="QTableWidget" name="tableFreq">
+            <property name="styleSheet">
+             <string notr="true">color: rgb(99, 122, 159);
+font: 700 8pt &quot;Traditional Arabic&quot;;
+alternate-background-color: rgb(201, 215, 221);
+background-color: rgb(255, 255, 255);
+border-top-color: rgb(201, 215, 221);
+</string>
+            </property>
+            <column>
+             <property name="text">
+              <string>Word</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Local Frequency</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Global Frequency</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">

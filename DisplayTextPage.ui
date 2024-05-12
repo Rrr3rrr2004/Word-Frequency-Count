@@ -6,73 +6,75 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>416</height>
+    <width>637</width>
+    <height>432</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>DisplayTextPage</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(252, 255, 224);</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="title">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>201</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 700 12pt &quot;Times New Roman&quot;;
-color: rgb(232, 200, 114);</string>
-    </property>
-    <property name="text">
-     <string>Your paragraph:</string>
-    </property>
-   </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>280</y>
-      <width>551</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QPushButton" name="next">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 243, 207);
-font: 700 10pt &quot;Times New Roman&quot;;</string>
-       </property>
-       <property name="text">
-        <string>Next</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QTextEdit" name="display">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>571</width>
-      <height>221</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-   </widget>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <widget class="QFrame" name="frame">
+      <property name="frameShape">
+       <enum>QFrame::Shape::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="1" column="0">
+        <widget class="QTextEdit" name="display">
+         <property name="styleSheet">
+          <string notr="true">font: 700 12pt &quot;Times New Roman&quot;;
+color: rgb(99, 122, 159);
+background-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="title">
+         <property name="styleSheet">
+          <string notr="true">font: 700 15pt &quot;Times New Roman&quot;;
+color: rgb(73, 57, 44);</string>
+         </property>
+         <property name="text">
+          <string>Your paragraph:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QPushButton" name="next">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 700 15pt &quot;Traditional Arabic&quot;;
+background-color: rgb(99, 122, 159);
+color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>Next</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">

@@ -6,192 +6,273 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>413</height>
+    <width>648</width>
+    <height>529</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>OperationsPage</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(252, 255, 224);</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>90</y>
-      <width>541</width>
-      <height>251</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QPushButton" name="displayPara">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 243, 207);
-font: 700 10pt &quot;Times New Roman&quot;;</string>
-       </property>
-       <property name="text">
-        <string>Display the paragraph</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="displayFreq">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 243, 207);
-font: 700 10pt &quot;Times New Roman&quot;;</string>
-       </property>
-       <property name="text">
-        <string>Display Frequency of each word</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="update">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 243, 207);
-font: 700 10pt &quot;Times New Roman&quot;;</string>
-       </property>
-       <property name="text">
-        <string>Update the paragraph</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="delete_2">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 243, 207);
-font: 700 10pt &quot;Times New Roman&quot;;</string>
-       </property>
-       <property name="text">
-        <string>Delete from the paragraph</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="sortAsc">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 243, 207);
-font: 700 10pt &quot;Times New Roman&quot;;</string>
-       </property>
-       <property name="text">
-        <string>Sort words ascendingly according to their frequencies </string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="sortDesc">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 243, 207);
-font: 700 10pt &quot;Times New Roman&quot;;</string>
-       </property>
-       <property name="text">
-        <string>Sort words descendingly according to their frequencies </string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="search">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 243, 207);
-font: 700 10pt &quot;Times New Roman&quot;;</string>
-       </property>
-       <property name="text">
-        <string>Search for a word to display its frequency</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="diplayRank">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 243, 207);
-font: 700 10pt &quot;Times New Roman&quot;;</string>
-       </property>
-       <property name="text">
-        <string>Display the rank</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QLabel" name="title">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>20</y>
-      <width>321</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(99, 122, 159);
-font: 20pt &quot;Stencil&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Operations on text</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="operation">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>10</y>
-      <width>81</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
+   <layout class="QGridLayout" name="gridLayout_4">
+    <item row="0" column="0">
+     <widget class="QFrame" name="frame">
+      <property name="frameShape">
+       <enum>QFrame::Shape::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QFrame" name="frame_2">
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="2">
+           <widget class="QLabel" name="title">
+            <property name="cursor">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 30pt &quot;Stencil&quot;;
+color: rgb(73, 57, 44);
+</string>
+            </property>
+            <property name="text">
+             <string>Operations on text</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="operation">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="3">
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QFrame" name="frame_3">
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="0">
+           <widget class="QPushButton" name="displayPara">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 700 15pt &quot;Traditional Arabic&quot;;
+background-color: rgb(99, 122, 159);
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>Display the paragraph</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QPushButton" name="displayFreq">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 700 15pt &quot;Traditional Arabic&quot;;
+background-color: rgb(99, 122, 159);
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>Display Frequency of each word</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QPushButton" name="update">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 700 15pt &quot;Traditional Arabic&quot;;
+background-color: rgb(99, 122, 159);
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>Update the paragraph</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QPushButton" name="delete_2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 700 15pt &quot;Traditional Arabic&quot;;
+background-color: rgb(99, 122, 159);
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>Delete from the paragraph</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QPushButton" name="sortAsc">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 700 15pt &quot;Traditional Arabic&quot;;
+background-color: rgb(99, 122, 159);
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>Sort words ascendingly according to their frequencies </string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QPushButton" name="sortDesc">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 700 15pt &quot;Traditional Arabic&quot;;
+background-color: rgb(99, 122, 159);
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>Sort words descendingly according to their frequencies </string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QPushButton" name="search">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 700 15pt &quot;Traditional Arabic&quot;;
+background-color: rgb(99, 122, 159);
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>Search for a word to display its frequency</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="QPushButton" name="diplayRank">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 700 15pt &quot;Traditional Arabic&quot;;
+background-color: rgb(99, 122, 159);
+color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>Display the rank</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+   <zorder>frame</zorder>
+   <zorder>verticalLayoutWidget</zorder>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
