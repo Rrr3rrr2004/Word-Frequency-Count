@@ -317,21 +317,3 @@ QString GlobalFunctions::getLastWord(const QString& text) {
 		return QString();
 	}
 }
-
-// Function to load words from a file into a vector
-//QVector<QString> LoadDictionary(const QString& filepath) {
-//	QVector<QString> dictionary;
-//	QFile file(filepath);
-//	if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-//		qWarning() << "Failed to open file:" << filepath;
-//		return dictionary; // Return empty dictionary if file cannot be opened
-//	}
-//	QTextStream in(&file);
-//	while (!in.atEnd()) {
-//		QString line = in.readLine();
-//		dictionary.append(line);
-//	}
-//	file.close();
-//	qSort(dictionary);
-//	return dictionary;
-//}
