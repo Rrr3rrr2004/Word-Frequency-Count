@@ -201,7 +201,7 @@ int GlobalFunctions::deleteFromText(const QString& text, bool& flag)
 
 void GlobalFunctions::autoComplete(const QString& word, QStringListModel* wordsModel, QCompleter* autoCompleter)
 {
-	QString p = GlobalFunctions::QParagraph.toLower();
+	QString p = GlobalFunctions::QParagraph;
 
 	// Define a regular expression pattern to match punctuation marks
 	QRegularExpression pattern("\\b|\\W");
@@ -218,8 +218,8 @@ void GlobalFunctions::autoComplete(const QString& word, QStringListModel* wordsM
 	{
 		filteredList << word;
 	}
-	wordsModel->setStringList(filteredList);
 
+	wordsModel->setStringList(filteredList);
 	// Set the completion prefix and complete
 	autoCompleter->setCompletionPrefix(word);
 	//completer->setCompletionPrefix(ui->newLine->text());
@@ -254,17 +254,8 @@ int GlobalFunctions::calculateDistance(const string& word1, const string& word2)
 // Function to perform autocorrection for the search term
 string GlobalFunctions::autoCorrect(const string& searchTerm)
 {
-	//QString dict;
-	//GlobalFunctions::readFile("./Files/dictionary.txt",dict);
-
 	QString text = allTexts.replace("\n", " ").toLower();
 	vector<string> dictionary = stringToVector(text.toStdString());
-	
-	/*for (QString line : dict)
-	{
-		dictionary.push_back(line);
-	}*/
-	//qSort(dictionary);
 	
 	// Threshold for maximum edit distance
 	const int maxEditDistance = 2;
@@ -321,21 +312,3 @@ QString GlobalFunctions::getLastWord(const QString& text) {
 		return QString();
 	}
 }
-
-// Function to load words from a file into a vector
-//QVector<QString> LoadDictionary(const QString& filepath) {
-//	QVector<QString> dictionary;
-//	QFile file(filepath);
-//	if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-//		qWarning() << "Failed to open file:" << filepath;
-//		return dictionary; // Return empty dictionary if file cannot be opened
-//	}
-//	QTextStream in(&file);
-//	while (!in.atEnd()) {
-//		QString line = in.readLine();
-//		dictionary.append(line);
-//	}
-//	file.close();
-//	qSort(dictionary);
-//	return dictionary;
-//}

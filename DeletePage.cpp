@@ -67,6 +67,7 @@ void DeletePage::deleteText()
 	else
 	{
 		QMessageBox::information(this, "Congratulation", "The Sentance Is Deleted.");
+		ui->display->setPlainText(GlobalFunctions::QParagraph);
 	}
 }
 
@@ -74,17 +75,11 @@ void DeletePage::deleteAllText()
 {
 	GlobalFunctions::QParagraph.clear();
 	QMessageBox::information(this, "Congraturaltion", "Your Text is Deleted Successfully");
+	ui->display->setPlainText(GlobalFunctions::QParagraph);
 }
 
 void DeletePage::autoCompletion()
 {
-	//delCompletion = ui->delText->text();
-	//QString lastWord = GlobalFunctions::getLastWord(delCompletion);
-	//GlobalFunctions::autoComplete(lastWord, hisModel, comp);
-	////delCorrection += lastWord + " ";
-	//ui->delText->clear();
-	//ui->delText->setText(delCompletion);
-	//delString += wordCorrection + " ";
 	GlobalFunctions::autoComplete(ui->delText->text(), hisModel, comp);
 }
 
