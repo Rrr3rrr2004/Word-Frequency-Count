@@ -10,14 +10,10 @@ unordered_map<string, int> GlobalFunctions::globalFrequencies;
 void GlobalFunctions::writeToFile()
 {
 	QFile file(filePath);
-	// Open the file in write mode
 	if (file.open(QIODevice::WriteOnly | QIODevice::Text))
 	{
-		// Create a QTextStream to write to the file
 		QTextStream out(&file);
-		// Write the data to the file
 		out << QParagraph;
-		// Close the file
 		file.close();
 	}
 }
@@ -41,7 +37,6 @@ void GlobalFunctions::readAllTexts()
 	while (true)
 	{
 		fileName.insert(12, i);
-		//fileName.append(12, i);
 		QFile file(fileName);
 
 		if (file.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -50,15 +45,12 @@ void GlobalFunctions::readAllTexts()
 
 			allTexts += in.readAll();
 			allTexts += "\n";
-			// store the Paragraph that in the file in paragraph after convert it to string
 			
-			// Get the Unicode value of the character
+			// get the unicode of the number (i);
 			ushort unicodeValue = i.unicode();
-
-			// Increment the Unicode value
 			unicodeValue++;
-
 			i = unicodeValue++;
+
 			fileName.remove(12, 1);
 			file.close();
 		}

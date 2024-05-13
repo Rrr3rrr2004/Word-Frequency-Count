@@ -1,10 +1,9 @@
 #include "MainWindow.h"
-#include <Qset>
+
 DeletePage::DeletePage(QWidget *parent)
 	: QMainWindow(parent)
 	, ui(new Ui::DeletePageClass())
 {
-	//delCorrection.clear();
 	delCorrection.clear();
 	ui->setupUi(this);
 	QPixmap deleteLogo("./icons/delete.png");
@@ -50,11 +49,11 @@ void DeletePage::moveToFinal()
 	finalPage->show();
 }
 
-//Delete functions
 void DeletePage::deleteText()
 {
 	if (ui->delText->text().isEmpty())
 	{
+		//if the user did not enter any sentence to delete
 		QMessageBox::warning(this, "Warning!!","There is no text provided to delete!");
 		return;
 	}
@@ -62,7 +61,8 @@ void DeletePage::deleteText()
 	GlobalFunctions::deleteFromText(ui->delText->text(),flag);
 	if (!flag)
 	{
-		QMessageBox::information(this, "Warning!!", ui->delText->text() + "\nIS NOT VALID IN YOUR TEXT!!\nPlease, Enter another Sentance.");
+		//if the user entered a sentence which did not in the text
+		QMessageBox::information(this, "Warning!!", ui->delText->text() + "\nIS NOT VALID IN YOUR TEXT!!\nPlease, Enter another Sentence.");
 		return;
 	}
 	QMessageBox::information(this, "Congratulation", "The Sentance Is Deleted.");
