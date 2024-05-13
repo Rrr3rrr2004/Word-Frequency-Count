@@ -50,6 +50,7 @@ void DeletePage::moveToFinal()
 	finalPage->show();
 }
 
+
 //Delete functions
 void DeletePage::deleteText()
 {
