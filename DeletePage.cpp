@@ -1,5 +1,7 @@
 #include "MainWindow.h"
 #include <Qset>
+#include "GlobalFunctions.h"
+
 DeletePage::DeletePage(QWidget *parent)
 	: QMainWindow(parent)
 	, ui(new Ui::DeletePageClass())
