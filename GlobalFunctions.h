@@ -49,6 +49,4 @@ public:
     static void autoCorrection(QLineEdit* lineEdit, QString& text);
     static int calculateDistance(const string& word1, const string& word2);
     static QString getLastWord(const QString& text);
-    //static QVector<QString> LoadDictionary(const QString& filepath);
-
 };

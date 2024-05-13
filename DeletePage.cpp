@@ -42,8 +42,8 @@ void DeletePage::moveToOperations()
 
 void DeletePage::moveToFinal()
 {
-	GlobalFunctions::writeToFile();
 	GlobalFunctions::allTexts.clear();
+	GlobalFunctions::writeToFile();
 	GlobalFunctions::readAllTexts();
 	hide();
 	FinalPage* finalPage = new FinalPage();

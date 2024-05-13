@@ -44,9 +44,9 @@ void UpdatePage::moveToOperations()
 
 void UpdatePage::moveToFinal()
 {
-	GlobalFunctions::writeToFile();
-	GlobalFunctions::writeToFile();
 	GlobalFunctions::allTexts.clear();
+	GlobalFunctions::writeToFile();
+	GlobalFunctions::readAllTexts();
 	hide();
 	FinalPage* finalPage = new FinalPage();
 	finalPage->show();
