@@ -48,7 +48,11 @@ void SearchPage::autoCorrection()
 {
 	string word = GlobalFunctions::autoCorrect(ui->searchLine->text().toStdString());
 	ui->searchLine->setText(QString::fromStdString(word));
-	
+	displayWord(word);
+}
+
+void SearchPage::displayWord(string word)
+{
 	//display localFrequency
 	int freq = GlobalFunctions::localFrequencies[word];
 	ui->wordFreqLocal->setPlainText(QString::number(freq));

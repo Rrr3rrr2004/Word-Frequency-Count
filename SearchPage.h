@@ -3,7 +3,8 @@
 #include "ui_SearchPage.h"
 #include <QStringListModel>
 #include <QCompleter>
-
+#include <string>
+using namespace std;
 QT_BEGIN_NAMESPACE
 namespace Ui { class SearchPageClass; };
 QT_END_NAMESPACE
@@ -21,8 +22,8 @@ private slots:
 	void moveToFinal();
 	void autoCompletion();
 	void autoCorrection();
-	//QString getLastWord(const QString& text);
-	//void searchWordFrequency(string, map<QString, int>);
+	void displayWord(string word);
+
 private:
 	QCompleter* comp;
 	QStringListModel* hisModel;

@@ -195,7 +195,7 @@ void GlobalFunctions::autoComplete(const QString& word, QStringListModel* wordsM
 {
 	QString p = GlobalFunctions::QParagraph;
 
-	// Define a regular expression pattern to match punctuation marks
+	// to ignore punctuation marks and split text to words
 	QRegularExpression pattern("\\b|\\W");
 	QStringList history = p.split(pattern, Qt::SkipEmptyParts);
 
@@ -214,7 +214,6 @@ void GlobalFunctions::autoComplete(const QString& word, QStringListModel* wordsM
 	wordsModel->setStringList(filteredList);
 	// Set the completion prefix and complete
 	autoCompleter->setCompletionPrefix(word);
-	//completer->setCompletionPrefix(ui->newLine->text());
 	autoCompleter->complete();
 }
 
