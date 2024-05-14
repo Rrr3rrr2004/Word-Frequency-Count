@@ -263,7 +263,7 @@ string GlobalFunctions::autoCorrect(const string& searchTerm)
 	vector<string> dictionary = stringToVector(text.toStdString());
 	
 	// Threshold for maximum edit distance
-	const int maxEditDistance = 2;
+	const int maxEditDistance = 3;
 
 	// Vector to store candidate words
 	vector<pair<int, string>> candidates;
