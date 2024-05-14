@@ -18,6 +18,7 @@ public:
 private slots:
 	void moveToOperations();
 	void moveToFinal();
+	void displayFreqTable();
 
 private:
 

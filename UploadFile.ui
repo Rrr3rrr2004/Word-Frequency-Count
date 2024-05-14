@@ -106,27 +106,6 @@ color: rgb(73, 57, 44);
           <enum>QFrame::Shadow::Raised</enum>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
-          <item row="0" column="0">
-           <widget class="QPushButton" name="uploadButton">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">font: 700 15pt &quot;Traditional Arabic&quot;;
-background-color: rgb(99, 122, 159);
-color: rgb(255, 255, 255);</string>
-            </property>
-            <property name="text">
-             <string>Upload file</string>
-            </property>
-           </widget>
-          </item>
           <item row="1" column="0">
            <widget class="QPushButton" name="nextToOp">
             <property name="sizePolicy">
@@ -148,8 +127,8 @@ color: rgb(255, 255, 255);</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="0">
-           <widget class="QPushButton" name="backToHome">
+          <item row="0" column="0">
+           <widget class="QPushButton" name="uploadButton">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
               <horstretch>0</horstretch>
@@ -165,7 +144,7 @@ background-color: rgb(99, 122, 159);
 color: rgb(255, 255, 255);</string>
             </property>
             <property name="text">
-             <string>Back and cancel</string>
+             <string>Upload file</string>
             </property>
            </widget>
           </item>
@@ -176,18 +155,6 @@ color: rgb(255, 255, 255);</string>
      </widget>
     </item>
    </layout>
-   <zorder>frame</zorder>
-   <zorder>verticalLayoutWidget</zorder>
-  </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>600</width>
-     <height>21</height>
-    </rect>
-   </property>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -196,8 +163,18 @@ color: rgb(255, 255, 255);</string>
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="back"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="back">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/back.png</normaloff>icons/back.png</iconset>
+   </property>
+   <property name="text">
+    <string>back</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

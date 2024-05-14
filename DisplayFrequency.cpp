@@ -8,8 +8,12 @@ DisplayFrequency::DisplayFrequency(QWidget *parent)
     ui->tableFreq->setRowCount(GlobalFunctions::localFrequencies.size());
     connect(ui->next, SIGNAL(clicked()), this, SLOT(moveToFinal()));
 	connect(ui->back, SIGNAL(triggered()), this, SLOT(moveToOperations()));
+    
+    displayFreqTable();
+}
 
-    // Populate table
+void DisplayFrequency::displayFreqTable()
+{
     int row = 0;
     for (auto pair : GlobalFunctions::localFrequencies)
     {

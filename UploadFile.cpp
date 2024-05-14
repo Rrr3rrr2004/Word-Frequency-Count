@@ -9,7 +9,7 @@ UploadFile::UploadFile(QWidget *parent)
 	ui->logo->setPixmap(logo.scaled(50, 50, Qt::KeepAspectRatio));
 	connect(ui->uploadButton, SIGNAL(clicked()), this, SLOT(upload()));
 	connect(ui->nextToOp, SIGNAL(clicked()), this, SLOT(moveToOperations()));
-	connect(ui->backToHome, SIGNAL(clicked()), this, SLOT(back()));
+	connect(ui->back, SIGNAL(triggered()), this, SLOT(back()));
 }
 
 void UploadFile::upload()
@@ -37,6 +37,7 @@ void UploadFile::moveToOperations()
 		operationsPage->show();
 	}
 }
+
 
 void UploadFile::back()
 {

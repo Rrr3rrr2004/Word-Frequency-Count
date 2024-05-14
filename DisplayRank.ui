@@ -66,9 +66,9 @@ color: rgb(255, 255, 255);</string>
            <widget class="QTableWidget" name="tableWidget">
             <property name="styleSheet">
              <string notr="true">color: rgb(99, 122, 159);
+background-color: rgb(255, 255, 255);
 font: 700 10pt &quot;Traditional Arabic&quot;;
-alternate-background-color: rgb(201, 215, 221);
-background-color: rgb(255, 255, 255);</string>
+alternate-background-color: rgb(201, 215, 221);</string>
             </property>
             <column>
              <property name="text">

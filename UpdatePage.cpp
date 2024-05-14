@@ -70,31 +70,36 @@ void UpdatePage::newAutoCorrection()
 
 void UpdatePage::updateText()
 {
+	if (ui->oldLine->text().isEmpty()|| ui->newLine->text().isEmpty())
+	{
+		QMessageBox::warning(this, "Warning!!", "There is no text provided to update!");
+		return;
+	}
 	bool flag = 0;
 	int index = GlobalFunctions::deleteFromText(ui->oldLine->text(), flag);
+
 	if (!flag)
 	{
 		QMessageBox::information(this, "Warning!!", ui->oldLine->text() + "\nIS NOT VALID IN YOUR TEXT!!\nPlease, Enter another Sentance.");
+		return;
 	}
-	else
+
+	string sNewText = ui->newLine->text().toStdString();
+	vector<string> newVector = GlobalFunctions::stringToVector(sNewText);
+
+	QString paragraph = GlobalFunctions::QParagraph;
+	vector<string> paraVector = GlobalFunctions::stringToVector(paragraph.replace("\n", " ").toLower().toStdString());
+
+	for (int i = 0; i < newVector.size(); i++)
 	{
-		string sNewText = ui->newLine->text().toStdString();
-		vector<string> newVector = GlobalFunctions::stringToVector(sNewText);
-
-		QString paragraph = GlobalFunctions::QParagraph;
-		vector<string> paraVector = GlobalFunctions::stringToVector(paragraph.replace("\n", " ").toLower().toStdString());
-
-		for (int i = 0; i < newVector.size(); i++)
-		{
-			paraVector.insert(paraVector.begin() + index, newVector[i]);
-			index++;
-		}
-
-		string finalPara = GlobalFunctions::vectorToString(paraVector);
-		GlobalFunctions::QParagraph = QString::fromStdString(finalPara);
-		QMessageBox::information(this, "Congratulation", "The Sentance Is Updated.");
-		ui->textEdit->setPlainText(GlobalFunctions::QParagraph);
+		paraVector.insert(paraVector.begin() + index, newVector[i]);
+		index++;
 	}
+
+	string finalPara = GlobalFunctions::vectorToString(paraVector);
+	GlobalFunctions::QParagraph = QString::fromStdString(finalPara);
+	QMessageBox::information(this, "Congratulation", "The Sentance Is Updated.");
+	ui->textEdit->setPlainText(GlobalFunctions::QParagraph);
 }
 
 UpdatePage::~UpdatePage()

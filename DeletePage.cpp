@@ -1,5 +1,7 @@
 #include "MainWindow.h"
 #include <Qset>
+#include "GlobalFunctions.h"
+
 DeletePage::DeletePage(QWidget *parent)
 	: QMainWindow(parent)
 	, ui(new Ui::DeletePageClass())
@@ -42,28 +44,32 @@ void DeletePage::moveToOperations()
 
 void DeletePage::moveToFinal()
 {
-	GlobalFunctions::writeToFile();
 	GlobalFunctions::allTexts.clear();
+	GlobalFunctions::writeToFile();
 	GlobalFunctions::readAllTexts();
 	hide();
 	FinalPage* finalPage = new FinalPage();
 	finalPage->show();
 }
 
+
 //Delete functions
 void DeletePage::deleteText()
 {
+	if (ui->delText->text().isEmpty())
+	{
+		QMessageBox::warning(this, "Warning!!","There is no text provided to delete!");
+		return;
+	}
 	bool flag = 0;
 	GlobalFunctions::deleteFromText(ui->delText->text(),flag);
 	if (!flag)
 	{
 		QMessageBox::information(this, "Warning!!", ui->delText->text() + "\nIS NOT VALID IN YOUR TEXT!!\nPlease, Enter another Sentance.");
+		return;
 	}
-	else
-	{
-		QMessageBox::information(this, "Congratulation", "The Sentance Is Deleted.");
-		ui->display->setPlainText(GlobalFunctions::QParagraph);
-	}
+	QMessageBox::information(this, "Congratulation", "The Sentance Is Deleted.");
+	ui->display->setPlainText(GlobalFunctions::QParagraph);
 }
 
 void DeletePage::deleteAllText()

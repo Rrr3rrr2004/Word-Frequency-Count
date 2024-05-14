@@ -10,14 +10,10 @@ unordered_map<string, int> GlobalFunctions::globalFrequencies;
 void GlobalFunctions::writeToFile()
 {
 	QFile file(filePath);
-	// Open the file in write mode
 	if (file.open(QIODevice::WriteOnly | QIODevice::Text))
 	{
-		// Create a QTextStream to write to the file
 		QTextStream out(&file);
-		// Write the data to the file
 		out << QParagraph;
-		// Close the file
 		file.close();
 	}
 }
@@ -41,7 +37,6 @@ void GlobalFunctions::readAllTexts()
 	while (true)
 	{
 		fileName.insert(12, i);
-		//fileName.append(12, i);
 		QFile file(fileName);
 
 		if (file.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -50,15 +45,12 @@ void GlobalFunctions::readAllTexts()
 
 			allTexts += in.readAll();
 			allTexts += "\n";
-			// store the Paragraph that in the file in paragraph after convert it to string
 			
-			// Get the Unicode value of the character
+			// get the unicode of the number (i);
 			ushort unicodeValue = i.unicode();
-
-			// Increment the Unicode value
 			unicodeValue++;
-
 			i = unicodeValue++;
+
 			fileName.remove(12, 1);
 			file.close();
 		}
@@ -186,13 +178,8 @@ int GlobalFunctions::deleteFromText(const QString& text, bool& flag)
 		}
 	}
 
-	//if (!flag)
-	//{
-		//QMessageBox::information(this, "Warning!!", QString::fromStdString(sDelText) + "\nIS NOT VALID IN YOUR TEXT!!\nPlease, Enter another Sentance");
-	//}
 	if (flag)
 	{
-		//QMessageBox::information(this, "Congratulation", "The Sentance Is Updated");
 		for (int i = 0; i < delVector.size(); i++)
 		{
 			paraVector.erase(paraVector.begin() + index);
@@ -208,7 +195,7 @@ void GlobalFunctions::autoComplete(const QString& word, QStringListModel* wordsM
 {
 	QString p = GlobalFunctions::QParagraph;
 
-	// Define a regular expression pattern to match punctuation marks
+	// to ignore punctuation marks and split text to words
 	QRegularExpression pattern("\\b|\\W");
 	QStringList history = p.split(pattern, Qt::SkipEmptyParts);
 
@@ -227,7 +214,6 @@ void GlobalFunctions::autoComplete(const QString& word, QStringListModel* wordsM
 	wordsModel->setStringList(filteredList);
 	// Set the completion prefix and complete
 	autoCompleter->setCompletionPrefix(word);
-	//completer->setCompletionPrefix(ui->newLine->text());
 	autoCompleter->complete();
 }
 

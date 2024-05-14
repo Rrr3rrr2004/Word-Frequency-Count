@@ -7,6 +7,8 @@
 #include <QTextEdit>
 #include <QString>
 #include <map>
+#include <unordered_map>
+#include <Qset>
 #include <vector>
 #include <QVector>
 #include <QTableWidget>
@@ -25,10 +27,11 @@ using namespace std;
 class GlobalFunctions
 {
 public:
+    //Text
     static QString QParagraph;
     static QString allTexts;
     static QString filePath;
-
+    //Frequencies
     static unordered_map<string, int> localFrequencies;
     static unordered_map<string, int> globalFrequencies;
 
@@ -39,16 +42,15 @@ public:
 
     static vector<string> stringToVector(string text);
     static string vectorToString(vector<string> text);
+    static QString getLastWord(const QString& text);
 
     static  unordered_map<string, int> countWordFrequency(QString paragraph);
 
     static int deleteFromText(const QString& text, bool& flag);
-    static void autoComplete(const QString& word, QStringListModel* wordsModel, QCompleter* autoCompleter);
 
+    static void autoComplete(const QString& word, QStringListModel* wordsModel, QCompleter* autoCompleter);
+    //autoCorrection functions
+    static int calculateDistance(const string& word1, const string& word2);
     static string autoCorrect(const string& searchTerm);
     static void autoCorrection(QLineEdit* lineEdit, QString& text);
-    static int calculateDistance(const string& word1, const string& word2);
-    static QString getLastWord(const QString& text);
-    //static QVector<QString> LoadDictionary(const QString& filepath);
-
 };
