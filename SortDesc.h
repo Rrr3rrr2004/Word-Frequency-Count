@@ -8,6 +8,7 @@ class SortDesc : public QMainWindow
 public:
     SortDesc(QWidget* parent = nullptr);
     static multimap<int, string, greater<int>> sortWordsDesc();
+    //static vector<pair<string, int>> SortDesc::sortWordDesc(unordered_map<string, int>& paragraph);
     ~SortDesc();
 
 private slots:

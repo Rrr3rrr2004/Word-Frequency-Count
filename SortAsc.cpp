@@ -12,7 +12,6 @@ SortAsc::SortAsc(QWidget *parent)
 	multimap<int, string> sortedMap = sortWordsAsc();
 	ui->tableAsc->setRowCount(sortedMap.size());
 
-	// Populate table
 	int row = 0;
 	for (auto pair : sortedMap)
 	{
@@ -51,6 +50,29 @@ std::multimap<int, std::string> SortAsc::sortWordsAsc()
 	}
 	return sortedMap;
 }
+
+//another way to sortAsc
+
+//vector<pair<string, int>> SortAsc::sortWordAsc(unordered_map<string, int>& paragraph)
+//{
+//	vector<pair<string, int>> vec(paragraph.begin(), paragraph.end());
+//
+//	bool swapped;
+//	do
+//	{
+//		swapped = false;
+//		for (int i = 0; i < vec.size() - 1; ++i)
+//		{
+//			if (vec[i].second > vec[i + 1].second)
+//			{
+//				swap(vec[i], vec[i + 1]);
+//				swapped = true;
+//			}
+//		}
+//	} while (swapped);
+//
+//	return vec;
+//}
 
 SortAsc::~SortAsc()
 {
