@@ -22,6 +22,7 @@ private slots:
 
 private:
 	std::multimap<int, std::string> sortWordsAsc();
-	//multimap<int, string> sortedMap;
+	//vector<pair<string, int>> SortAsc::sortWordAsc(unordered_map<string, int>& paragraph);
+
 	Ui::SortAscClass *ui;
 };

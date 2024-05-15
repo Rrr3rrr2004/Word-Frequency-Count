@@ -52,6 +52,30 @@ multimap<int, string, greater<int>> SortDesc::sortWordsDesc()
     return sortedMap;
 }
 
+//another way to sortDesc
+
+//vector<pair<string, int>> SortDesc::sortWordDesc(unordered_map<string, int>& paragraph)
+//{
+//    vector<pair<string, int>> vec(paragraph.begin(), paragraph.end());
+//
+//    bool swapped;
+//    do
+//    {
+//        swapped = false;
+//        for (int i = 0; i < vec.size() - 1; ++i)
+//        {
+//            if (vec[i].second < vec[i + 1].second)
+//            {
+//                swap(vec[i], vec[i + 1]);
+//                swapped = true;
+//            }
+//        }
+//    } while (swapped);
+//
+//    return vec;
+//}
+
+
 SortDesc::~SortDesc()
 {
     delete ui;
