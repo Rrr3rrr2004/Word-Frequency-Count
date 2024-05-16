@@ -1,4 +1,3 @@
-//#include "HomePage.h"
 #include "MainWindow.h"
 
 HomePage::HomePage(QWidget *parent)
@@ -27,13 +26,6 @@ void HomePage::moveToUpload()
 	uploadFile = new UploadFile();
 	uploadFile->show();
 }
-
-//void HomePage::moveToOperations()
-//{
-//	hide();
-//	operationsPage = new OperationsPage();
-//	operationsPage->show();
-//}
 
 void HomePage::back()
 {

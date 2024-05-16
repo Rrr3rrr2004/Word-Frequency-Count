@@ -128,19 +128,12 @@ unordered_map<string, int> GlobalFunctions::countWordFrequency(QString text)
 string GlobalFunctions::vectorToString(vector<string> text)
 {
 	string finalPara;
-	int n = 0;
 	// Iterate over each element of the vector
 	for (string str : text)
 	{
 		// Concatenate the current string to the result
 		finalPara += str;
 		finalPara += " ";
-		if (n == 18)
-		{
-			finalPara += '\n';
-			n = 0;
-		}
-		n++;
 	}
 	return finalPara;
 }
